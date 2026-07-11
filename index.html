@@ -210,11 +210,11 @@ a{text-decoration:none;color:inherit;}
 [data-theme="3"] .categories__view--list{display:block;}
 
 /* 8a. Arc carousel */
-.arc{position:relative;margin:0 calc(var(--space-4) * -1);height:190px;overflow:hidden;
+.arc{position:relative;margin:0 calc(var(--space-4) * -1);height:164px;overflow:hidden;
   background:linear-gradient(180deg,var(--color-hero-to),var(--red-600));}
-.arc__curve{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:200%;height:138px;
+.arc__curve{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:200%;height:110px;
   background:var(--color-bg);border-radius:50% 50% 0 0/120px 120px 0 0;}
-.arc__rail{position:absolute;inset:0 0 auto 0;height:190px;z-index:1;pointer-events:none;}
+.arc__rail{position:absolute;inset:0 0 auto 0;height:164px;z-index:1;pointer-events:none;}
 .arc__rail path{fill:none;stroke:var(--color-primary);stroke-width:1.5;stroke-dasharray:2 7;
   stroke-linecap:round;opacity:.25;}
 .arc__bump{position:absolute;left:50%;top:26px;transform:translateX(-50%);width:104px;height:104px;
@@ -360,6 +360,7 @@ a{text-decoration:none;color:inherit;}
 /* ---------- 14. THEME 1 OPTIMIZATION (banner + icon dịch vụ) ---------- */
 /* 14c. Banner: nổi khối hơn trên nền đỏ */
 [data-theme="1"] .banner__track{box-shadow:0 8px 22px rgba(120,6,26,.30);}
+[data-theme="5"] .banner{padding-bottom:var(--space-6);}
 [data-theme="5"] .banner__track{box-shadow:var(--shadow-md);}
 [data-theme="5"] .banner__slide{border:1px solid var(--gray-100);}
 [data-theme="5"] .search__input{border:1px solid var(--color-border);box-shadow:var(--shadow-sm);}
@@ -505,7 +506,7 @@ a{text-decoration:none;color:inherit;}
 [data-theme="4"] .banner__slide{border:1px solid var(--gray-100);}
 [data-theme="4"] .banner__track{box-shadow:var(--shadow-md);}
 /* Căn lại nhịp banner ↔ arc: khép khoảng trống, hai khối nối liền */
-[data-theme="4"] .banner{padding-bottom:var(--space-2);}
+[data-theme="4"] .banner{padding-bottom:var(--space-6);}
 
 /* 14.8b. Dải arc chuyển sang tông sáng — trắng lặn dần vào hồng nhạt */
 [data-theme="4"] .arc{background:linear-gradient(180deg,var(--white) 0%,var(--red-50) 100%);}
@@ -540,6 +541,11 @@ a{text-decoration:none;color:inherit;}
   [data-theme="4"] .banner{animation:riseIn .5s var(--ease) .14s backwards;}
   [data-theme="4"] .categories__view--arc{animation:riseIn .55s var(--ease) .21s backwards;}
 }
+
+/* Nhịp dọc theme arc: khép khoảng dots → tiêu đề section sản phẩm */
+[data-theme="1"] .section.products,
+[data-theme="4"] .section.products,
+[data-theme="5"] .section.products{padding-top:var(--space-5);}
 
 /* ---------- 15. RESPONSIVE ---------- */
 /* Mobile-first mặc định. Tablet/desktop: bo khung app, header sticky nổi bật hơn */
@@ -631,7 +637,7 @@ a{text-decoration:none;color:inherit;}
       <div class="categories__view categories__view--arc">
         <div class="arc">
           <div class="arc__curve"></div>
-          <svg class="arc__rail" viewBox="0 0 390 190" preserveAspectRatio="xMidYMid meet"><path d="M -10 120 Q 195 70 400 120"/></svg>
+          <svg class="arc__rail" viewBox="0 0 390 164" preserveAspectRatio="none"><path d="M -10 103 Q 195 59 400 103"/></svg>
           <div class="arc__bump"></div>
           <div class="arc__stage" id="arcStage"><div class="cat" data-c="0"><span class="cat__icon"><svg class="icon"><use href="#i-car"/></svg></span><span class="cat__label">Ô tô</span></div><div class="cat" data-c="1"><span class="cat__icon"><svg class="icon"><use href="#i-motorbike"/></svg></span><span class="cat__label">Xe máy</span></div><div class="cat" data-c="2"><span class="cat__icon"><svg class="icon"><use href="#i-heart"/></svg></span><span class="cat__label">Sức khoẻ</span></div><div class="cat" data-c="3"><span class="cat__icon"><svg class="icon"><use href="#i-users-group"/></svg></span><span class="cat__label">Đời sống</span></div><div class="cat" data-c="4"><span class="cat__icon"><svg class="icon"><use href="#i-med-cross"/></svg></span><span class="cat__label">Y tế, XH</span></div><div class="cat" data-c="5"><span class="cat__icon"><svg class="icon"><use href="#i-umbrella"/></svg></span><span class="cat__label">Nhân thọ</span></div><div class="cat" data-c="6"><span class="cat__icon"><svg class="icon"><use href="#i-plane"/></svg></span><span class="cat__label">Du lịch</span></div></div>
           <div class="arc__dots" id="arcDots"><span class="arc__dot arc__dot--on"></span><span class="arc__dot"></span><span class="arc__dot"></span></div>
