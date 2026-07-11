@@ -319,12 +319,13 @@ a{text-decoration:none;color:inherit;}
 .pcompact__price{font-size:var(--fs-base);color:var(--color-primary);font-weight:var(--fw-bold);}
 
 /* ---------- 10. INSURERS ---------- */
-.insurers{display:flex;gap:var(--space-3);}
-.insurer{flex:1;min-width:0;min-height:84px;background:var(--color-surface);border:1px solid var(--color-border);
-  border-radius:var(--radius-md);padding:var(--space-3) var(--space-2);box-shadow:var(--shadow-card);
-  display:flex;align-items:center;justify-content:center;
-  transition:border-color var(--dur),transform var(--dur) var(--ease),box-shadow var(--dur);}
-.insurer:active{border-color:var(--color-primary);transform:scale(.97);box-shadow:var(--shadow-sm);}
+/* Bỏ khung card — chỉ hiển thị logo, phóng to, 3 nhà chia đều hàng ngang */
+.insurers{display:flex;gap:var(--space-4);align-items:center;justify-content:space-between;}
+.insurer{flex:1;min-width:0;display:flex;align-items:center;justify-content:center;
+  padding:var(--space-2) 0;cursor:pointer;
+  transition:transform var(--dur) var(--ease),opacity var(--dur);}
+.insurer:active{transform:scale(.93);opacity:.75;}
+.insurer__logo{height:76px;max-width:100%;object-fit:contain;}
 
 /* ---------- 11. GUIDE ---------- */
 .guide{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);
@@ -338,7 +339,6 @@ a{text-decoration:none;color:inherit;}
 .guide__item:active .guide__icon{transform:scale(.92);}
 .guide__icon img{width:46px;height:46px;object-fit:contain;}
 .guide__label{font-size:var(--fs-sm);color:var(--color-text);line-height:1.35;}
-.insurer__logo{height:48px;max-width:100%;object-fit:contain;}
 
 /* ---------- 12. BOTTOM NAV (mobile app style) ---------- */
 .bottomnav{position:absolute;left:0;right:0;bottom:0;display:flex;background:var(--color-surface);
