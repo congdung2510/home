@@ -1130,6 +1130,22 @@ a{text-decoration:none;color:inherit;}
 [data-theme="7"] .bottomnav__item--on,[data-theme="8"] .bottomnav__item--on{color:var(--color-primary);font-weight:var(--fw-bold);}
 [data-theme="7"] .bottomnav__item svg,[data-theme="8"] .bottomnav__item svg{font-size:21px;stroke-width:1.8;}
 
+/* ---------- THEME 8 — chỉnh riêng theme màu nền theo mock (không đổi chức năng) ---------- */
+/* Dòng chảy màu: hồng đậm ở đỉnh → đậm nhất quanh vòm → trắng ánh hồng cho phần thân */
+[data-theme="8"]{
+  --color-bg:#FDF8FA;                 /* nền thân trang: trắng ánh hồng */
+  --color-hero-from:#FBDDE7;          /* đỉnh hero hồng rõ */
+  --color-hero-to:#F7D2DE;            /* đáy hero = đỉnh dải icon (khớp giao thoa 1) */
+}
+[data-theme="8"] .arc{
+  background:linear-gradient(180deg,#F7D2DE 0%,#F5CBD9 100%);} /* nối liền từ hero, đậm dần */
+[data-theme="8"] .arc__curve{
+  background:linear-gradient(180deg,#FFFFFF 0%,#FDF8FA 100%);  /* vòm trắng tan đúng vào nền thân (giao thoa 2) */
+  box-shadow:0 -12px 28px rgba(190,60,95,.12);}
+[data-theme="8"] .arc__bump{background:linear-gradient(180deg,#FFFFFF 0%,#FDF3F6 100%);}
+/* Card trắng tinh nổi nhẹ trên nền gần-trắng (giao thoa 3) */
+[data-theme="8"] .pcard,[data-theme="8"] .insurers-pill{box-shadow:0 6px 20px rgba(190,60,95,.10);}
+
 /* ---------- 15. RESPONSIVE ---------- */
 /* Mobile-first mặc định. Tablet/desktop: bo khung app, header sticky nổi bật hơn */
 @media (min-width:721px){
