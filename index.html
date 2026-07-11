@@ -71,7 +71,18 @@
 /* ---------- 2. THEMES (chỉ override tokens + vài layout flag) ---------- */
 
 /* Theme 1 — Classic Red: hero đỏ, danh mục dạng arc carousel */
-[data-theme="1"]{ --cat-layout:arc; --product-layout:viettel; }
+/* Theme 1 — Rose Pedestal: theme hồng pastel toàn trang, banner CMS, bệ khoá tròn ôm icon giữa */
+[data-theme="1"]{
+  --color-primary:#E5173F;
+  --color-bg:#F8ECF0;
+  --color-hero-from:#FBE3E9;
+  --color-hero-to:#F8ECF0;
+  --hero-text:var(--gray-900);
+  --hero-search-bg:var(--white);
+  --cat-layout:arc; --product-layout:viettel;
+}
+
+[data-theme="2"]{ --cat-layout:arc; --product-layout:viettel; }
 
 /* Theme 2 — Light & Airy: hero trắng/hồng nhạt, danh mục lưới, thoáng */
 [data-theme="_2"]{
@@ -97,7 +108,7 @@
 }
 
 /* Theme 4 — Fresh Arc: hero sáng (nền banner Theme 2) + danh mục arc của Theme 1, icon nhiều màu */
-[data-theme="2"]{
+[data-theme="3"]{
   --color-primary:var(--red-700);
   --color-hero-from:var(--red-50);
   --color-hero-to:var(--white);
@@ -108,7 +119,7 @@
 }
 
 /* Theme 7 — Silk Road: clone Theme 4, icon dịch vụ chạy trên dải lụa hồng có vạch làn */
-[data-theme="5"]{
+[data-theme="6"]{
   --color-primary:var(--red-700);
   --color-hero-from:var(--red-50);
   --color-hero-to:var(--white);
@@ -119,7 +130,7 @@
 }
 
 /* Theme 5 — Classic Arc Light: clone y nguyên Theme 1, chỉ đổi nền hero sang banner sáng của Theme 2 */
-[data-theme="3"]{
+[data-theme="4"]{
   --color-hero-from:var(--red-50);
   --color-hero-to:var(--white);
   --hero-text:var(--gray-900);
@@ -128,7 +139,7 @@
 }
 
 /* Theme 6 — Radar Orbit: clone Theme 5, icon dịch vụ trên nền vòm radar đồng tâm */
-[data-theme="4"]{
+[data-theme="5"]{
   --color-bg:#FFF9FA;            /* trắng ấm ánh hồng — nền toàn trang */
   --color-hero-from:var(--red-50);
   --color-hero-to:#FFFDFD;
@@ -203,7 +214,7 @@ a{text-decoration:none;color:inherit;}
 /* ---------- 7. BANNER (carousel + skeleton loading) ---------- */
 .banner{padding:var(--space-4) var(--space-4) var(--space-1);position:relative;z-index:2;}
 /* Theme 1: thêm khoảng thở giữa banner và hàng icon dịch vụ (arc) */
-[data-theme="1"] .banner{padding-bottom:var(--space-4);}
+[data-theme="2"] .banner{padding-bottom:var(--space-4);}
 .banner__track{display:flex;gap:var(--space-3);overflow-x:auto;scroll-snap-type:x mandatory;
   scrollbar-width:none;border-radius:var(--radius-lg);}
 .banner__track::-webkit-scrollbar{display:none;}
@@ -217,8 +228,8 @@ a{text-decoration:none;color:inherit;}
 .banner__dot{width:5px;height:5px;border-radius:var(--radius-full);background:rgba(255,255,255,.55);
   transition:all var(--dur);}
 .banner__dot--on{width:18px;background:var(--white);}
-[data-theme="_2"] .banner__dot,[data-theme="2"] .banner__dot,[data-theme="3"] .banner__dot,[data-theme="4"] .banner__dot,[data-theme="5"] .banner__dot{background:var(--gray-300);}
-[data-theme="_2"] .banner__dot--on,[data-theme="2"] .banner__dot--on,[data-theme="3"] .banner__dot--on,[data-theme="4"] .banner__dot--on,[data-theme="5"] .banner__dot--on{background:var(--color-primary);}
+[data-theme="_2"] .banner__dot,[data-theme="3"] .banner__dot,[data-theme="4"] .banner__dot,[data-theme="5"] .banner__dot,[data-theme="6"] .banner__dot{background:var(--gray-300);}
+[data-theme="_2"] .banner__dot--on,[data-theme="3"] .banner__dot--on,[data-theme="4"] .banner__dot--on,[data-theme="5"] .banner__dot--on,[data-theme="6"] .banner__dot--on{background:var(--color-primary);}
 
 /* ---------- 8. CATEGORIES — 3 layouts, chọn qua --cat-layout ---------- */
 .categories{position:relative;}
@@ -228,7 +239,8 @@ a{text-decoration:none;color:inherit;}
 [data-theme="2"] .categories__view--arc,
 [data-theme="3"] .categories__view--arc,
 [data-theme="4"] .categories__view--arc,
-[data-theme="5"] .categories__view--arc{display:block;}
+[data-theme="5"] .categories__view--arc,
+[data-theme="6"] .categories__view--arc{display:block;}
 [data-theme="_2"] .categories__view--grid{display:block;}
 [data-theme="_3"] .categories__view--list{display:block;}
 
@@ -276,7 +288,8 @@ a{text-decoration:none;color:inherit;}
 [data-theme="2"] .products__view--viettel,
 [data-theme="3"] .products__view--viettel,
 [data-theme="4"] .products__view--viettel,
-[data-theme="5"] .products__view--viettel{display:block;}
+[data-theme="5"] .products__view--viettel,
+[data-theme="6"] .products__view--viettel{display:block;}
 [data-theme="_2"] .products__view--benefit{display:block;}
 [data-theme="_3"] .products__view--compact{display:block;}
 
@@ -384,56 +397,56 @@ a{text-decoration:none;color:inherit;}
 
 /* ---------- 14. THEME 1 OPTIMIZATION (banner + icon dịch vụ) ---------- */
 /* 14c. Banner: nổi khối hơn trên nền đỏ */
-[data-theme="1"] .banner__track{box-shadow:0 8px 22px rgba(120,6,26,.30);}
-[data-theme="3"] .banner,
-[data-theme="4"] .banner{padding-bottom:var(--space-6);}
-[data-theme="3"] .banner__track,
-[data-theme="4"] .banner__track{box-shadow:var(--shadow-md);}
-[data-theme="3"] .banner__slide,
-[data-theme="4"] .banner__slide{border:1px solid var(--gray-100);}
-[data-theme="3"] .search__input,
-[data-theme="4"] .search__input{border:1px solid var(--color-border);box-shadow:var(--shadow-sm);}
-[data-theme="3"] .search__cart,
-[data-theme="4"] .search__cart{border:1px solid var(--red-100);background:var(--red-50);box-shadow:var(--shadow-sm);}
+[data-theme="2"] .banner__track{box-shadow:0 8px 22px rgba(120,6,26,.30);}
+[data-theme="4"] .banner,
+[data-theme="5"] .banner{padding-bottom:var(--space-6);}
+[data-theme="4"] .banner__track,
+[data-theme="5"] .banner__track{box-shadow:var(--shadow-md);}
+[data-theme="4"] .banner__slide,
+[data-theme="5"] .banner__slide{border:1px solid var(--gray-100);}
+[data-theme="4"] .search__input,
+[data-theme="5"] .search__input{border:1px solid var(--color-border);box-shadow:var(--shadow-sm);}
+[data-theme="4"] .search__cart,
+[data-theme="5"] .search__cart{border:1px solid var(--red-100);background:var(--red-50);box-shadow:var(--shadow-sm);}
 
 /* 14d. Icon dịch vụ — tile SVG đồng bộ: đỏ trên nền trắng, item giữa đảo màu */
-[data-theme="1"] .cat__icon,
-[data-theme="3"] .cat__icon,
+[data-theme="2"] .cat__icon,
 [data-theme="4"] .cat__icon,
-[data-theme="5"] .cat__icon{display:flex;align-items:center;justify-content:center;
+[data-theme="5"] .cat__icon,
+[data-theme="6"] .cat__icon{display:flex;align-items:center;justify-content:center;
   background:var(--white);color:var(--color-primary);font-size:21px;
   border:1px solid var(--red-100);}
-[data-theme="1"] .cat__icon .icon,
-[data-theme="3"] .cat__icon .icon,
+[data-theme="2"] .cat__icon .icon,
 [data-theme="4"] .cat__icon .icon,
-[data-theme="5"] .cat__icon .icon{stroke-width:1.8;}
-[data-theme="1"] .cat--center .cat__icon,
-[data-theme="3"] .cat--center .cat__icon,
+[data-theme="5"] .cat__icon .icon,
+[data-theme="6"] .cat__icon .icon{stroke-width:1.8;}
+[data-theme="2"] .cat--center .cat__icon,
 [data-theme="4"] .cat--center .cat__icon,
-[data-theme="5"] .cat--center .cat__icon{
+[data-theme="5"] .cat--center .cat__icon,
+[data-theme="6"] .cat--center .cat__icon{
   background:linear-gradient(160deg,var(--red-600),var(--red-800));
   color:var(--white);font-size:27px;border-color:transparent;
   box-shadow:var(--shadow-primary);}
-[data-theme="1"] .cat--center .cat__label,
-[data-theme="3"] .cat--center .cat__label,
+[data-theme="2"] .cat--center .cat__label,
 [data-theme="4"] .cat--center .cat__label,
-[data-theme="5"] .cat--center .cat__label{color:var(--color-primary);}
-[data-theme="1"] .cat:active .cat__icon,
-[data-theme="3"] .cat:active .cat__icon,
+[data-theme="5"] .cat--center .cat__label,
+[data-theme="6"] .cat--center .cat__label{color:var(--color-primary);}
+[data-theme="2"] .cat:active .cat__icon,
 [data-theme="4"] .cat:active .cat__icon,
-[data-theme="5"] .cat:active .cat__icon{transform:scale(.94);}
+[data-theme="5"] .cat:active .cat__icon,
+[data-theme="6"] .cat:active .cat__icon{transform:scale(.94);}
 .cat__icon{transition:width var(--dur),height var(--dur),background var(--dur),
   color var(--dur),box-shadow var(--dur),transform var(--dur);}
 
 /* 14e. Chuyển động vào trang — chạy 1 lần, tôn trọng reduced-motion */
 @media (prefers-reduced-motion: no-preference){
-  [data-theme="1"] .header{animation:riseIn .5s var(--ease) backwards;}
-  [data-theme="1"] .search{animation:riseIn .5s var(--ease) .07s backwards;}
-  [data-theme="1"] .banner{animation:riseIn .5s var(--ease) .14s backwards;}
-  [data-theme="3"] .header{animation:riseIn .5s var(--ease) backwards;}
-  [data-theme="3"] .search{animation:riseIn .5s var(--ease) .07s backwards;}
-  [data-theme="3"] .banner{animation:riseIn .5s var(--ease) .14s backwards;}
-  [data-theme="3"] .categories__view--arc{animation:riseIn .55s var(--ease) .21s backwards;}
+  [data-theme="2"] .header{animation:riseIn .5s var(--ease) backwards;}
+  [data-theme="2"] .search{animation:riseIn .5s var(--ease) .07s backwards;}
+  [data-theme="2"] .banner{animation:riseIn .5s var(--ease) .14s backwards;}
+  [data-theme="4"] .header{animation:riseIn .5s var(--ease) backwards;}
+  [data-theme="4"] .search{animation:riseIn .5s var(--ease) .07s backwards;}
+  [data-theme="4"] .banner{animation:riseIn .5s var(--ease) .14s backwards;}
+  [data-theme="4"] .categories__view--arc{animation:riseIn .55s var(--ease) .21s backwards;}
 }
 @keyframes riseIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
 
@@ -537,55 +550,55 @@ a{text-decoration:none;color:inherit;}
 
 /* ---------- 14.8 THEME 4 OPTIMIZATION (Fresh Arc — arc sáng, icon nhiều màu) ---------- */
 /* 14.8a. Hero sáng (nền banner Theme 2) + polish search/cart/banner */
-[data-theme="2"] .hero::before,
-[data-theme="5"] .hero::before{
+[data-theme="3"] .hero::before,
+[data-theme="6"] .hero::before{
   background:
     radial-gradient(120% 80% at 85% -15%, rgba(229,23,63,.10), transparent 55%),
     radial-gradient(80% 60% at 10% 0%, rgba(229,23,63,.05), transparent 50%);}
-[data-theme="2"] .search__input,
-[data-theme="5"] .search__input{border:1px solid var(--color-border);box-shadow:var(--shadow-sm);}
-[data-theme="2"] .search__cart,
-[data-theme="5"] .search__cart{border:1px solid var(--color-border);background:var(--white);box-shadow:var(--shadow-sm);}
-[data-theme="2"] .banner__slide,
-[data-theme="5"] .banner__slide{border:1px solid var(--gray-100);}
-[data-theme="2"] .banner__track,
-[data-theme="5"] .banner__track{box-shadow:var(--shadow-md);}
+[data-theme="3"] .search__input,
+[data-theme="6"] .search__input{border:1px solid var(--color-border);box-shadow:var(--shadow-sm);}
+[data-theme="3"] .search__cart,
+[data-theme="6"] .search__cart{border:1px solid var(--color-border);background:var(--white);box-shadow:var(--shadow-sm);}
+[data-theme="3"] .banner__slide,
+[data-theme="6"] .banner__slide{border:1px solid var(--gray-100);}
+[data-theme="3"] .banner__track,
+[data-theme="6"] .banner__track{box-shadow:var(--shadow-md);}
 /* Căn lại nhịp banner ↔ arc: khép khoảng trống, hai khối nối liền */
-[data-theme="2"] .banner,
-[data-theme="5"] .banner{padding-bottom:var(--space-6);}
+[data-theme="3"] .banner,
+[data-theme="6"] .banner{padding-bottom:var(--space-6);}
 
 /* 14.8b. Dải arc chuyển sang tông sáng — trắng lặn dần vào hồng nhạt */
-[data-theme="2"] .arc{background:linear-gradient(180deg,var(--white) 0%,var(--red-50) 100%);}
-[data-theme="2"] .arc__curve{background:var(--white);box-shadow:0 -10px 24px rgba(229,23,63,.06);}
-[data-theme="2"] .arc__bump{background:var(--white);box-shadow:0 -4px 14px rgba(229,23,63,.10);}
-[data-theme="2"] .arc__rail path{opacity:.35;}
-[data-theme="2"] .arc__dot{background:var(--red-100);}
-[data-theme="2"] .arc__dot--on{background:var(--color-primary);}
+[data-theme="3"] .arc{background:linear-gradient(180deg,var(--white) 0%,var(--red-50) 100%);}
+[data-theme="3"] .arc__curve{background:var(--white);box-shadow:0 -10px 24px rgba(229,23,63,.06);}
+[data-theme="3"] .arc__bump{background:var(--white);box-shadow:0 -4px 14px rgba(229,23,63,.10);}
+[data-theme="3"] .arc__rail path{opacity:.35;}
+[data-theme="3"] .arc__dot{background:var(--red-100);}
+[data-theme="3"] .arc__dot--on{background:var(--color-primary);}
 
 /* 14.8c. Icon dịch vụ nhiều màu — mỗi danh mục một tông, item giữa tô đặc màu riêng */
-[data-theme="2"] .cat[data-c="0"]{--tile:#2f6fed;--tile-bg:#e8f0fe;--tile-line:#d5e3fc;--tile-glow:rgba(47,111,237,.32);}
-[data-theme="2"] .cat[data-c="1"]{--tile:#0d9d84;--tile-bg:#e2f7f1;--tile-line:#c9efe4;--tile-glow:rgba(13,157,132,.32);}
-[data-theme="2"] .cat[data-c="2"]{--tile:#e5173f;--tile-bg:#fde3e8;--tile-line:#fbd0d9;--tile-glow:rgba(229,23,63,.32);}
-[data-theme="2"] .cat[data-c="3"]{--tile:#e08a00;--tile-bg:#fdf1dd;--tile-line:#fae3bd;--tile-glow:rgba(224,138,0,.32);}
-[data-theme="2"] .cat[data-c="4"]{--tile:#7c4dff;--tile-bg:#f0eafe;--tile-line:#e2d7fc;--tile-glow:rgba(124,77,255,.32);}
-[data-theme="2"] .cat[data-c="5"]{--tile:#0891c9;--tile-bg:#e2f4fc;--tile-line:#c8e9f8;--tile-glow:rgba(8,145,201,.32);}
-[data-theme="2"] .cat[data-c="6"]{--tile:#ef5a1e;--tile-bg:#feeae1;--tile-line:#fcd6c5;--tile-glow:rgba(239,90,30,.32);}
-[data-theme="2"] .cat__icon{display:flex;align-items:center;justify-content:center;
+[data-theme="3"] .cat[data-c="0"]{--tile:#2f6fed;--tile-bg:#e8f0fe;--tile-line:#d5e3fc;--tile-glow:rgba(47,111,237,.32);}
+[data-theme="3"] .cat[data-c="1"]{--tile:#0d9d84;--tile-bg:#e2f7f1;--tile-line:#c9efe4;--tile-glow:rgba(13,157,132,.32);}
+[data-theme="3"] .cat[data-c="2"]{--tile:#e5173f;--tile-bg:#fde3e8;--tile-line:#fbd0d9;--tile-glow:rgba(229,23,63,.32);}
+[data-theme="3"] .cat[data-c="3"]{--tile:#e08a00;--tile-bg:#fdf1dd;--tile-line:#fae3bd;--tile-glow:rgba(224,138,0,.32);}
+[data-theme="3"] .cat[data-c="4"]{--tile:#7c4dff;--tile-bg:#f0eafe;--tile-line:#e2d7fc;--tile-glow:rgba(124,77,255,.32);}
+[data-theme="3"] .cat[data-c="5"]{--tile:#0891c9;--tile-bg:#e2f4fc;--tile-line:#c8e9f8;--tile-glow:rgba(8,145,201,.32);}
+[data-theme="3"] .cat[data-c="6"]{--tile:#ef5a1e;--tile-bg:#feeae1;--tile-line:#fcd6c5;--tile-glow:rgba(239,90,30,.32);}
+[data-theme="3"] .cat__icon{display:flex;align-items:center;justify-content:center;
   background:linear-gradient(160deg,var(--tile-bg),#ffffff 135%);
   color:var(--tile);border:1px solid var(--tile-line);font-size:21px;}
-[data-theme="2"] .cat__icon .icon{stroke-width:1.8;}
-[data-theme="2"] .cat--center .cat__icon{
+[data-theme="3"] .cat__icon .icon{stroke-width:1.8;}
+[data-theme="3"] .cat--center .cat__icon{
   background:var(--tile);color:var(--white);border-color:transparent;font-size:27px;
   box-shadow:0 10px 24px var(--tile-glow);}
-[data-theme="2"] .cat--center .cat__label{color:var(--tile);}
-[data-theme="2"] .cat:active .cat__icon{transform:scale(.94);}
+[data-theme="3"] .cat--center .cat__label{color:var(--tile);}
+[data-theme="3"] .cat:active .cat__icon{transform:scale(.94);}
 
 /* 14.8d. Chuyển động vào trang Theme 4 */
 @media (prefers-reduced-motion: no-preference){
-  [data-theme="2"] .header{animation:riseIn .5s var(--ease) backwards;}
-  [data-theme="2"] .search{animation:riseIn .5s var(--ease) .07s backwards;}
-  [data-theme="2"] .banner{animation:riseIn .5s var(--ease) .14s backwards;}
-  [data-theme="2"] .categories__view--arc{animation:riseIn .55s var(--ease) .21s backwards;}
+  [data-theme="3"] .header{animation:riseIn .5s var(--ease) backwards;}
+  [data-theme="3"] .search{animation:riseIn .5s var(--ease) .07s backwards;}
+  [data-theme="3"] .banner{animation:riseIn .5s var(--ease) .14s backwards;}
+  [data-theme="3"] .categories__view--arc{animation:riseIn .55s var(--ease) .21s backwards;}
 }
 
 /* Nhịp dọc theme arc: khép khoảng dots → tiêu đề section sản phẩm */
@@ -593,54 +606,55 @@ a{text-decoration:none;color:inherit;}
 [data-theme="2"] .section.products,
 [data-theme="3"] .section.products,
 [data-theme="4"] .section.products,
-[data-theme="5"] .section.products{padding-top:var(--space-5);}
+[data-theme="5"] .section.products,
+[data-theme="6"] .section.products{padding-top:var(--space-5);}
 
 /* ---------- 14.9 THEME 6 OPTIMIZATION (Radar Orbit — vành đồng tâm) ---------- */
 /* Vành radar: ẩn mặc định, chỉ hiện ở Theme 6 */
 .arc__rings{display:none;}
-[data-theme="4"] .arc{height:176px;
+[data-theme="5"] .arc{height:176px;
   background:
     linear-gradient(180deg,#FFFDFD 0%,rgba(255,253,253,0) 24%),
     linear-gradient(0deg,#FFF9FA 0%,rgba(255,249,250,0) 16%),
     radial-gradient(130% 150% at 50% -12%, #ffffff 0%, #FDECEF 42%, #F8D9E0 100%);}
-[data-theme="4"] .arc__curve,
-[data-theme="4"] .arc__bump,
-[data-theme="4"] .arc__rail{display:none;}
-[data-theme="4"] .arc__rings{display:block;position:absolute;inset:0;z-index:1;pointer-events:none;
+[data-theme="5"] .arc__curve,
+[data-theme="5"] .arc__bump,
+[data-theme="5"] .arc__rail{display:none;}
+[data-theme="5"] .arc__rings{display:block;position:absolute;inset:0;z-index:1;pointer-events:none;
   -webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%);
   mask-image:linear-gradient(180deg,#000 70%,transparent 100%);}
-[data-theme="4"] .arc__rings circle{fill:none;stroke:var(--red-600);stroke-width:1.5;
+[data-theme="5"] .arc__rings circle{fill:none;stroke:var(--red-600);stroke-width:1.5;
   stroke-dasharray:2 8;stroke-linecap:round;}
-[data-theme="4"] .arc__rings circle:nth-child(1){opacity:.26;}
-[data-theme="4"] .arc__rings circle:nth-child(2){opacity:.20;}
-[data-theme="4"] .arc__rings circle:nth-child(3){opacity:.14;}
-[data-theme="4"] .arc__rings circle:nth-child(4){opacity:.09;}
+[data-theme="5"] .arc__rings circle:nth-child(1){opacity:.26;}
+[data-theme="5"] .arc__rings circle:nth-child(2){opacity:.20;}
+[data-theme="5"] .arc__rings circle:nth-child(3){opacity:.14;}
+[data-theme="5"] .arc__rings circle:nth-child(4){opacity:.09;}
 /* Icon nổi trên vòm: bóng mềm hơn, label đậm rõ trên nền hồng */
-[data-theme="4"] .cat__icon{box-shadow:0 8px 20px rgba(200,16,46,.12);border:none;}
-[data-theme="4"] .cat--center .cat__icon{box-shadow:0 12px 28px rgba(200,16,46,.35);}
-[data-theme="4"] .cat__label{color:var(--gray-700);font-weight:var(--fw-medium);}
-[data-theme="4"] .arc__dot{background:rgba(200,16,46,.18);}
-[data-theme="4"] .arc__dot--on{background:var(--color-primary);}
+[data-theme="5"] .cat__icon{box-shadow:0 8px 20px rgba(200,16,46,.12);border:none;}
+[data-theme="5"] .cat--center .cat__icon{box-shadow:0 12px 28px rgba(200,16,46,.35);}
+[data-theme="5"] .cat__label{color:var(--gray-700);font-weight:var(--fw-medium);}
+[data-theme="5"] .arc__dot{background:rgba(200,16,46,.18);}
+[data-theme="5"] .arc__dot--on{background:var(--color-primary);}
 
 /* Chuyển động vào trang Theme 6 */
 @media (prefers-reduced-motion: no-preference){
-  [data-theme="4"] .header{animation:riseIn .5s var(--ease) backwards;}
-  [data-theme="4"] .search{animation:riseIn .5s var(--ease) .07s backwards;}
-  [data-theme="4"] .banner{animation:riseIn .5s var(--ease) .14s backwards;}
-  [data-theme="4"] .categories__view--arc{animation:riseIn .55s var(--ease) .21s backwards;}
+  [data-theme="5"] .header{animation:riseIn .5s var(--ease) backwards;}
+  [data-theme="5"] .search{animation:riseIn .5s var(--ease) .07s backwards;}
+  [data-theme="5"] .banner{animation:riseIn .5s var(--ease) .14s backwards;}
+  [data-theme="5"] .categories__view--arc{animation:riseIn .55s var(--ease) .21s backwards;}
 }
 
 
 /* Theme 4: vòng tròn nền sau icon giữa nhuộm theo màu danh mục đang chọn */
-[data-theme="2"] .arc__bump{border:1.5px solid transparent;
+[data-theme="3"] .arc__bump{border:1.5px solid transparent;
   transition:border-color .35s var(--ease),box-shadow .35s var(--ease),background-color .35s var(--ease);}
-[data-theme="2"] .arc[data-center="0"] .arc__bump{background-color:#F4F8FE;border-color:#d5e3fc;box-shadow:0 10px 26px rgba(47,111,237,.20);}
-[data-theme="2"] .arc[data-center="1"] .arc__bump{background-color:#F1FBF8;border-color:#c9efe4;box-shadow:0 10px 26px rgba(13,157,132,.20);}
-[data-theme="2"] .arc[data-center="2"] .arc__bump{background-color:#FEF1F4;border-color:#fbd0d9;box-shadow:0 10px 26px rgba(229,23,63,.20);}
-[data-theme="2"] .arc[data-center="3"] .arc__bump{background-color:#FEF8EE;border-color:#fae3bd;box-shadow:0 10px 26px rgba(224,138,0,.20);}
-[data-theme="2"] .arc[data-center="4"] .arc__bump{background-color:#F7F4FE;border-color:#e2d7fc;box-shadow:0 10px 26px rgba(124,77,255,.20);}
-[data-theme="2"] .arc[data-center="5"] .arc__bump{background-color:#F1F9FD;border-color:#c8e9f8;box-shadow:0 10px 26px rgba(8,145,201,.20);}
-[data-theme="2"] .arc[data-center="6"] .arc__bump{background-color:#FEF4EE;border-color:#fcd6c5;box-shadow:0 10px 26px rgba(239,90,30,.20);}
+[data-theme="3"] .arc[data-center="0"] .arc__bump{background-color:#F4F8FE;border-color:#d5e3fc;box-shadow:0 10px 26px rgba(47,111,237,.20);}
+[data-theme="3"] .arc[data-center="1"] .arc__bump{background-color:#F1FBF8;border-color:#c9efe4;box-shadow:0 10px 26px rgba(13,157,132,.20);}
+[data-theme="3"] .arc[data-center="2"] .arc__bump{background-color:#FEF1F4;border-color:#fbd0d9;box-shadow:0 10px 26px rgba(229,23,63,.20);}
+[data-theme="3"] .arc[data-center="3"] .arc__bump{background-color:#FEF8EE;border-color:#fae3bd;box-shadow:0 10px 26px rgba(224,138,0,.20);}
+[data-theme="3"] .arc[data-center="4"] .arc__bump{background-color:#F7F4FE;border-color:#e2d7fc;box-shadow:0 10px 26px rgba(124,77,255,.20);}
+[data-theme="3"] .arc[data-center="5"] .arc__bump{background-color:#F1F9FD;border-color:#c8e9f8;box-shadow:0 10px 26px rgba(8,145,201,.20);}
+[data-theme="3"] .arc[data-center="6"] .arc__bump{background-color:#FEF4EE;border-color:#fcd6c5;box-shadow:0 10px 26px rgba(239,90,30,.20);}
 
 
 /* Theme 4: tinh chỉnh section sản phẩm */
@@ -649,59 +663,148 @@ a{text-decoration:none;color:inherit;}
   font-size:11px;font-weight:var(--fw-bold);color:var(--white);letter-spacing:.02em;
   background:linear-gradient(160deg,var(--red-600),var(--red-800));
   padding:3px 8px;border-radius:var(--radius-full);box-shadow:0 3px 8px rgba(229,23,63,.30);}
-[data-theme="2"] .pcard__promo,
-[data-theme="5"] .pcard__promo{display:inline-block;}
-[data-theme="2"] .section.products .section__link,
-[data-theme="5"] .section.products .section__link{display:none;}
+[data-theme="3"] .pcard__promo,
+[data-theme="6"] .pcard__promo{display:inline-block;}
+[data-theme="3"] .section.products .section__link,
+[data-theme="6"] .section.products .section__link{display:none;}
 
 /* ---------- 14.95 THEME 5 OPTIMIZATION (Liquid Glass — cầu vồng kính mờ iOS) ---------- */
 .arc__ribbon{display:none;}
 /* Nền mesh gradient mềm kiểu iOS — blob màu loang để lớp kính có gì để "mờ" */
-[data-theme="5"] .hero{background:
+[data-theme="6"] .hero{background:
   radial-gradient(70% 90% at 12% 0%, rgba(255,186,199,.55), transparent 60%),
   radial-gradient(60% 80% at 92% 8%, rgba(187,206,255,.45), transparent 62%),
   linear-gradient(180deg,#FFF6F8,#FFFFFF);}
-[data-theme="5"] .arc{height:176px;background:
+[data-theme="6"] .arc{height:176px;background:
   radial-gradient(58% 85% at 14% 18%, rgba(255,183,197,.50), transparent 62%),
   radial-gradient(52% 78% at 86% 10%, rgba(186,205,255,.42), transparent 60%),
   radial-gradient(72% 95% at 50% 115%, rgba(255,214,165,.38), transparent 62%),
   #FFFFFF;}
-[data-theme="5"] .arc__curve,
-[data-theme="5"] .arc__bump,
-[data-theme="5"] .arc__rail{display:none;}
-[data-theme="5"] .arc__ribbon{display:block;position:absolute;inset:0;z-index:1;pointer-events:none;}
+[data-theme="6"] .arc__curve,
+[data-theme="6"] .arc__bump,
+[data-theme="6"] .arc__rail{display:none;}
+[data-theme="6"] .arc__ribbon{display:block;position:absolute;inset:0;z-index:1;pointer-events:none;}
 /* Dải cầu vồng: 3 vệt kính mờ song song cùng quỹ đạo icon */
-[data-theme="5"] .lq__band{fill:none;stroke-width:24;stroke-linecap:round;filter:url(#lqblur);}
-[data-theme="5"] .lq__band--1{stroke:rgba(255, 99,132,.32);}
-[data-theme="5"] .lq__band--2{stroke:rgba(255,178,102,.30);}
-[data-theme="5"] .lq__band--3{stroke:rgba(147,155,255,.28);}
+[data-theme="6"] .lq__band{fill:none;stroke-width:24;stroke-linecap:round;filter:url(#lqblur);}
+[data-theme="6"] .lq__band--1{stroke:rgba(255, 99,132,.32);}
+[data-theme="6"] .lq__band--2{stroke:rgba(255,178,102,.30);}
+[data-theme="6"] .lq__band--3{stroke:rgba(147,155,255,.28);}
 /* Vệt sáng kính chạy sát dưới làn icon */
-[data-theme="5"] .lq__sheen{fill:none;stroke:rgba(255,255,255,.75);stroke-width:7;filter:url(#lqblur);}
+[data-theme="6"] .lq__sheen{fill:none;stroke:rgba(255,255,255,.75);stroke-width:7;filter:url(#lqblur);}
 /* Vạch làn nét đứt — trùng chính xác quỹ đạo tâm icon */
-[data-theme="5"] .lq__lane{fill:none;stroke:var(--red-600);stroke-width:2;
+[data-theme="6"] .lq__lane{fill:none;stroke:var(--red-600);stroke-width:2;
   stroke-dasharray:8 11;stroke-linecap:round;opacity:.45;}
 /* Icon = tile kính mờ (liquid glass) */
-[data-theme="5"] .cat__icon{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.75);
+[data-theme="6"] .cat__icon{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.75);
   -webkit-backdrop-filter:blur(14px) saturate(1.5);backdrop-filter:blur(14px) saturate(1.5);
   box-shadow:0 8px 24px rgba(120,60,120,.14), inset 0 1px 0 rgba(255,255,255,.9);}
-[data-theme="5"] .cat--center .cat__icon{background:linear-gradient(160deg,rgba(229,23,63,.92),rgba(161,12,38,.92));
+[data-theme="6"] .cat--center .cat__icon{background:linear-gradient(160deg,rgba(229,23,63,.92),rgba(161,12,38,.92));
   border:1px solid rgba(255,255,255,.5);
   box-shadow:0 12px 30px rgba(200,16,46,.35), inset 0 1px 0 rgba(255,255,255,.45);}
-[data-theme="5"] .cat__label{color:var(--gray-800);font-weight:var(--fw-semibold);}
-[data-theme="5"] .arc__dot{background:rgba(200,16,46,.16);}
-[data-theme="5"] .arc__dot--on{background:var(--color-primary);}
+[data-theme="6"] .cat__label{color:var(--gray-800);font-weight:var(--fw-semibold);}
+[data-theme="6"] .arc__dot{background:rgba(200,16,46,.16);}
+[data-theme="6"] .arc__dot--on{background:var(--color-primary);}
 /* Search + giỏ hàng kính mờ đồng bộ */
-[data-theme="5"] .search__input{background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.85);
+[data-theme="6"] .search__input{background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.85);
   -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 4px 16px rgba(120,60,120,.10);}
-[data-theme="5"] .search__cart{background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.85);
+[data-theme="6"] .search__cart{background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.85);
   -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 4px 16px rgba(120,60,120,.10);}
 
 /* Chuyển động vào trang Theme 7 */
 @media (prefers-reduced-motion: no-preference){
-  [data-theme="5"] .header{animation:riseIn .5s var(--ease) backwards;}
-  [data-theme="5"] .search{animation:riseIn .5s var(--ease) .07s backwards;}
-  [data-theme="5"] .banner{animation:riseIn .5s var(--ease) .14s backwards;}
-  [data-theme="5"] .categories__view--arc{animation:riseIn .55s var(--ease) .21s backwards;}
+  [data-theme="6"] .header{animation:riseIn .5s var(--ease) backwards;}
+  [data-theme="6"] .search{animation:riseIn .5s var(--ease) .07s backwards;}
+  [data-theme="6"] .banner{animation:riseIn .5s var(--ease) .14s backwards;}
+  [data-theme="6"] .categories__view--arc{animation:riseIn .55s var(--ease) .21s backwards;}
+}
+
+/* ---------- 14.0 THEME 1 (Rose Pedestal — theme hồng CMS + bệ khoá tròn) ---------- */
+/* ---- 1a. Hero & search: hồng pastel, ô tìm kiếm trắng nổi, giỏ hàng có badge ---- */
+[data-theme="1"] .hero::before{background:
+  radial-gradient(90% 70% at 80% -10%, rgba(229,23,63,.08), transparent 60%),
+  radial-gradient(70% 55% at 8% 4%, rgba(229,23,63,.05), transparent 55%);}
+[data-theme="1"] .search__input{border:none;box-shadow:0 6px 18px rgba(190,60,95,.12);}
+[data-theme="1"] .search__cart{background:var(--white);border:none;box-shadow:0 6px 18px rgba(190,60,95,.12);}
+.cart__badge{display:none;position:absolute;top:-5px;right:-5px;min-width:17px;height:17px;
+  padding:0 4px;border-radius:var(--radius-full);background:var(--color-primary);color:var(--white);
+  font-size:10px;font-weight:var(--fw-bold);line-height:17px;text-align:center;
+  box-shadow:0 0 0 2px var(--color-hero-from);}
+[data-theme="1"] .search__cart{position:relative;}
+[data-theme="1"] .cart__badge{display:block;}
+
+/* ---- 1b. Banner promo dạng CMS: thay carousel ảnh bằng card thiết kế ---- */
+.promo{display:none;}
+[data-theme="1"] .promo--off{display:block;position:relative;overflow:hidden;
+  background:linear-gradient(150deg,#FCDDE6 0%,#F9CBD9 55%,#F6C2D2 100%);
+  border-radius:var(--radius-xl);padding:var(--space-4) var(--space-4) var(--space-5);
+  box-shadow:0 10px 26px rgba(190,60,95,.18), inset 0 1px 0 rgba(255,255,255,.6);}
+.promo__brand{position:absolute;top:14px;right:14px;display:inline-flex;align-items:center;gap:4px;
+  font-size:var(--fs-xs);font-weight:var(--fw-bold);color:var(--red-700);}
+.promo__brand .icon{font-size:12px;}
+.promo__pill{display:inline-block;font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--white);
+  background:linear-gradient(160deg,#C4123A,#8E0A28);padding:6px 14px;border-radius:var(--radius-full);
+  box-shadow:0 4px 10px rgba(142,10,40,.30);margin-bottom:var(--space-3);}
+.promo__title{font-size:27px;line-height:1.15;font-weight:800;letter-spacing:-.01em;
+  color:var(--gray-900);margin:0 0 var(--space-3);max-width:70%;}
+.promo__title em{font-style:normal;color:var(--color-primary);}
+.promo__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);max-width:72%;}
+.promo__list li{display:flex;align-items:flex-start;gap:var(--space-2);
+  font-size:var(--fs-sm);font-weight:var(--fw-medium);color:var(--gray-800);line-height:1.4;}
+.promo__list .icon{flex-shrink:0;width:18px;height:18px;padding:3.5px;margin-top:1px;
+  border-radius:var(--radius-full);background:var(--color-primary);color:var(--white);
+  font-size:11px;stroke-width:2.5;box-sizing:border-box;}
+.promo__shield{position:absolute;right:16px;top:52px;width:96px;height:108px;
+  filter:drop-shadow(0 10px 18px rgba(182,14,49,.35));}
+.promo__dots{display:flex;justify-content:center;gap:var(--space-1);margin-top:var(--space-4);}
+.promo__dot{width:6px;height:6px;border-radius:var(--radius-full);background:rgba(200,16,46,.22);}
+.promo__dot--on{width:18px;background:var(--color-primary);}
+
+[data-theme="1"] .banner__track{box-shadow:0 10px 24px rgba(190,60,95,.18);}
+[data-theme="1"] .banner__slide{border:1px solid rgba(255,255,255,.7);}
+[data-theme="1"] .banner__dot{background:rgba(200,16,46,.18);}
+[data-theme="1"] .banner__dot--on{background:var(--color-primary);}
+
+/* ---- 1c. Icon dịch vụ: dải hồng + vạch làn + BỆ KHOÁ TRÒN ôm icon giữa ---- */
+.arc__lane1{display:none;}
+[data-theme="1"] .arc{height:188px;
+  background:linear-gradient(180deg,#F7D3DE 0%,#FBE4EB 55%,#F8ECF0 100%);}
+[data-theme="1"] .arc__rail,
+[data-theme="1"] .arc__ribbon,
+[data-theme="1"] .arc__rings{display:none;}
+/* đường cong trắng dưới chân — nối vào nền trang hồng nhạt hơn */
+[data-theme="1"] .arc__curve{background:var(--white);height:122px;
+  box-shadow:0 -12px 28px rgba(190,60,95,.10);}
+/* vạch làn nét đứt trùng chính xác quỹ đạo tâm icon */
+[data-theme="1"] .arc__lane1{display:block;position:absolute;inset:0;z-index:0;pointer-events:none;}
+[data-theme="1"] .arc__lane1 path{fill:none;stroke:var(--red-600);stroke-width:2;
+  stroke-dasharray:2 8;stroke-linecap:round;opacity:.40;}
+/* Cụm icon hạ xuống 34px, chừa dải hồng mỏng phía trên — không đè banner */
+[data-theme="1"] .arc__stage{top:34px;}
+/* BỆ KHOÁ TRÒN: nằm trọn trong section, vành đều ôm icon + label giữa */
+[data-theme="1"] .arc__bump{width:112px;height:112px;top:8px;background:var(--white);
+  box-shadow:0 14px 30px rgba(190,60,95,.20), inset 0 -6px 14px rgba(246,194,210,.35);}
+/* icon: tile trắng icon đỏ, bóng hồng; giữa đỏ gradient nổi trên bệ */
+[data-theme="1"] .cat__icon{display:flex;align-items:center;justify-content:center;
+  background:var(--white);color:var(--color-primary);font-size:21px;border:none;
+  box-shadow:0 8px 20px rgba(190,60,95,.18);}
+[data-theme="1"] .cat__icon .icon{stroke-width:1.8;}
+[data-theme="1"] .cat--center .cat__icon{
+  background:linear-gradient(160deg,var(--red-600),var(--red-800));color:var(--white);font-size:27px;
+  box-shadow:0 10px 24px rgba(200,16,46,.40);}
+[data-theme="1"] .cat--center .cat__label{color:var(--color-primary);}
+[data-theme="1"] .cat__label{color:var(--gray-800);font-weight:var(--fw-semibold);}
+[data-theme="1"] .cat:active .cat__icon{transform:scale(.94);}
+[data-theme="1"] .arc__dot{background:rgba(200,16,46,.16);}
+[data-theme="1"] .arc__dot--on{background:var(--color-primary);}
+/* nhịp banner ↔ dải icon */
+[data-theme="1"] .banner{padding-bottom:var(--space-4);}
+
+/* ---- 1d. Chuyển động vào trang ---- */
+@media (prefers-reduced-motion: no-preference){
+  [data-theme="1"] .header{animation:riseIn .5s var(--ease) backwards;}
+  [data-theme="1"] .search{animation:riseIn .5s var(--ease) .07s backwards;}
+  [data-theme="1"] .banner{animation:riseIn .5s var(--ease) .14s backwards;}
+  [data-theme="1"] .categories__view--arc{animation:riseIn .55s var(--ease) .21s backwards;}
 }
 
 /* ---------- 15. RESPONSIVE ---------- */
@@ -779,12 +882,32 @@ a{text-decoration:none;color:inherit;}
 
       <div class="search">
         <div class="search__input"><svg class="icon"><use href="#i-search"/></svg><span>Tìm sản phẩm bảo hiểm</span></div>
-        <button class="search__cart" aria-label="Giỏ hàng"><svg class="icon"><use href="#i-shopping-cart"/></svg></button>
+        <button class="search__cart" aria-label="Giỏ hàng"><svg class="icon"><use href="#i-shopping-cart"/></svg><span class="cart__badge">2</span></button>
       </div>
 
       <div class="banner">
         <div class="banner__track" id="bannerTrack"><img class="banner__slide" src="https://api24cdn.vtmoney.vn/ntbh-cms-service-uat/banners/1782699247-6bcdc897-9385-4ef5-a01d-9f0876959c47/b93b6e8f-f7cb-40a4-ba0d-09ba76d1ce83-mobile.png" alt="Khuyến mãi 1" loading="eager" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'banner__slide'}))"><img class="banner__slide" src="https://api24cdn.vtmoney.vn/ntbh-cms-service-uat/banners/1780629460-c3f8870a-b60f-4052-a414-9333ad40f9e1/7fd4513c-8436-4c82-9a20-8c03759e5105-mobile.png" alt="Khuyến mãi 2" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'banner__slide'}))"><img class="banner__slide" src="https://api24cdn.vtmoney.vn/ntbh-cms-service-uat/banners/1780629398-93f829f2-0f6d-483e-9e0c-120c88b21444/146172ce-00e6-449b-8c66-39fc034d7ff1-mobile.png" alt="Khuyến mãi 3" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'banner__slide'}))"></div>
         <div class="banner__dots" id="bannerDots"><span class="banner__dot banner__dot--on"></span><span class="banner__dot"></span><span class="banner__dot"></span></div>
+        <!-- Banner promo dạng CMS — chỉ hiện ở Theme 1 -->
+        <article class="promo" aria-label="Bảo hiểm thân vỏ ô tô">
+          <span class="promo__brand"><svg class="icon"><use href="#i-shield-check"/></svg>viettel money</span>
+          <span class="promo__pill">Bảo hiểm thân vỏ ô tô</span>
+          <h2 class="promo__title">TIẾT KIỆM <em>3</em> TRIỆU</h2>
+          <ul class="promo__list">
+            <li><svg class="icon"><use href="#i-flame"/></svg>So sánh báo giá miễn phí chỉ 20 giây</li>
+            <li><svg class="icon"><use href="#i-home"/></svg>Hơn 3.000 gara chính hãng toàn quốc</li>
+            <li><svg class="icon"><use href="#i-shield-check"/></svg>Không phí ẩn, không mập mờ điều khoản</li>
+          </ul>
+          <svg class="promo__shield" viewBox="0 0 96 108" aria-hidden="true">
+            <defs><linearGradient id="shg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#F4436B"/><stop offset="1" stop-color="#B60E31"/></linearGradient></defs>
+            <path d="M48 4 L88 18 V52 C88 80 70 98 48 104 C26 98 8 80 8 52 V18 Z" fill="url(#shg)"/>
+            <path d="M48 12 L80 23 V52 C80 74 66 89 48 95 C30 89 16 74 16 52 V23 Z" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
+            <circle cx="48" cy="52" r="17" fill="none" stroke="#fff" stroke-width="4"/>
+            <path d="M40 52 l6 6 l11 -12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="promo__dots"><span class="promo__dot promo__dot--on"></span><span class="promo__dot"></span><span class="promo__dot"></span></div>
+        </article>
       </div>
     </header>
 
@@ -795,7 +918,8 @@ a{text-decoration:none;color:inherit;}
         <div class="arc">
           <div class="arc__curve"></div>
           <svg class="arc__rail" viewBox="0 0 390 164" preserveAspectRatio="none"><path d="M -10 103 Q 195 59 400 103"/></svg>
-          <svg class="arc__ribbon" viewBox="0 0 422 176" aria-hidden="true"><defs><filter id="lqblur" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur stdDeviation="5"/></filter></defs><path class="lq__band lq__band--1" d="M -11 137 Q 211 -23 433 137"/><path class="lq__band lq__band--2" d="M -11 165 Q 211 5 433 165"/><path class="lq__band lq__band--3" d="M -11 193 Q 211 33 433 193"/><path class="lq__sheen" d="M -11 126 Q 211 -34 433 126"/><path class="lq__lane" d="M -11 103 Q 211 -57 433 103"/></svg>
+          <svg class="arc__lane1" viewBox="0 0 422 176" aria-hidden="true"><path d="M -11 126.9 Q 211 -12.9 433 126.9"/></svg>
+          <svg class="arc__ribbon" viewBox="0 0 422 176" aria-hidden="true"><defs><filter id="lqblur" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur stdDeviation="5"/></filter></defs><path class="lq__band lq__band--1" d="M -11 126.9 Q 211 -12.9 433 126.9"/><path class="lq__band lq__band--2" d="M -11 154.9 Q 211 15.1 433 154.9"/><path class="lq__band lq__band--3" d="M -11 182.9 Q 211 43.1 433 182.9"/><path class="lq__sheen" d="M -11 115.9 Q 211 -23.9 433 115.9"/><path class="lq__lane" d="M -11 92.9 Q 211 -46.9 433 92.9"/></svg>
           <svg class="arc__rings" viewBox="0 0 390 176" preserveAspectRatio="none" aria-hidden="true"><circle cx="195" cy="560" r="410"/><circle cx="195" cy="560" r="470"/><circle cx="195" cy="560" r="530"/><circle cx="195" cy="560" r="590"/></svg>
           <div class="arc__bump"></div>
           <div class="arc__stage" id="arcStage"><div class="cat" data-c="0"><span class="cat__icon"><svg class="icon"><use href="#i-car"/></svg></span><span class="cat__label">Ô tô</span></div><div class="cat" data-c="1"><span class="cat__icon"><svg class="icon"><use href="#i-motorbike"/></svg></span><span class="cat__label">Xe máy</span></div><div class="cat" data-c="2"><span class="cat__icon"><svg class="icon"><use href="#i-heart"/></svg></span><span class="cat__label">Sức khoẻ</span></div><div class="cat" data-c="3"><span class="cat__icon"><svg class="icon"><use href="#i-users-group"/></svg></span><span class="cat__label">Đời sống</span></div><div class="cat" data-c="4"><span class="cat__icon"><svg class="icon"><use href="#i-med-cross"/></svg></span><span class="cat__label">Y tế, XH</span></div><div class="cat" data-c="5"><span class="cat__icon"><svg class="icon"><use href="#i-umbrella"/></svg></span><span class="cat__label">Nhân thọ</span></div><div class="cat" data-c="6"><span class="cat__icon"><svg class="icon"><use href="#i-plane"/></svg></span><span class="cat__label">Du lịch</span></div></div>
@@ -901,9 +1025,9 @@ a{text-decoration:none;color:inherit;}
     <div class="themebar" role="group" aria-label="Chọn giao diện">
       <span class="themebar__label">Giao diện:</span>
       <div class="themebar__seg" id="themeSeg">
-        <button class="themebar__btn themebar__btn--on" data-theme-btn="1">1</button>
+        <button class="themebar__btn themebar__btn--on" data-theme-btn="1">1</button><button class="themebar__btn" data-theme-btn="2">2</button>
         
-        <button class="themebar__btn" data-theme-btn="2">2</button><button class="themebar__btn" data-theme-btn="3">3</button><button class="themebar__btn" data-theme-btn="4">4</button><button class="themebar__btn" data-theme-btn="5">5</button>
+        <button class="themebar__btn" data-theme-btn="3">3</button><button class="themebar__btn" data-theme-btn="4">4</button><button class="themebar__btn" data-theme-btn="5">5</button><button class="themebar__btn" data-theme-btn="6">6</button>
       </div>
     </div>
 
@@ -927,7 +1051,7 @@ a{text-decoration:none;color:inherit;}
 (function(){
   const root = document.documentElement;
   const seg = document.getElementById('themeSeg');
-  const VALID_THEMES = ['1','2','3','4','5']; // theme cũ 2,3 đã rào (_2,_3), không cho kích hoạt
+  const VALID_THEMES = ['1','2','3','4','5','6']; // theme cũ 2,3 đã rào (_2,_3), không cho kích hoạt
   function setTheme(n){
     if (!VALID_THEMES.includes(String(n))) n = '1';
     root.dataset.theme = n;
@@ -991,7 +1115,7 @@ let initArc;
     for (let c=0;c<COPIES;c++) baseNodes.forEach(n=>frag.appendChild(n.cloneNode(true)));
     stage.innerHTML=''; stage.appendChild(frag);
     const nodes = [...stage.querySelectorAll('.cat')];
-    const SPACING=86, LIFT=12;
+    const SPACING=92, LIFT=12;
     let center = Math.floor(COPIES/2)*CAT;
     const LOW=CAT, HIGH=(COPIES-1)*CAT;
     const dotWrap = document.getElementById('arcDots');
