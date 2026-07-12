@@ -779,17 +779,25 @@ a{text-decoration:none;color:inherit;}
 .promo__pill{display:inline-block;font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--white);
   background:linear-gradient(160deg,#C4123A,#8E0A28);padding:6px 14px;border-radius:var(--radius-full);
   box-shadow:0 4px 10px rgba(142,10,40,.30);margin-bottom:var(--space-3);}
-.promo__title{font-size:27px;line-height:1.15;font-weight:800;letter-spacing:-.01em;
-  color:var(--gray-900);margin:0 0 var(--space-3);max-width:70%;}
+.promo__title{font-size:26px;line-height:1.12;font-weight:800;letter-spacing:-.02em;
+  color:var(--gray-900);margin:0 0 var(--space-3);white-space:nowrap;position:relative;z-index:1;}
 .promo__title em{font-style:normal;color:var(--color-primary);}
-.promo__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);max-width:72%;}
+.promo__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);max-width:64%;position:relative;z-index:1;}
 .promo__list li{display:flex;align-items:flex-start;gap:var(--space-2);
   font-size:var(--fs-sm);font-weight:var(--fw-medium);color:var(--gray-800);line-height:1.4;}
 .promo__list .icon{flex-shrink:0;width:18px;height:18px;padding:3.5px;margin-top:1px;
   border-radius:var(--radius-full);background:var(--color-primary);color:var(--white);
   font-size:11px;stroke-width:2.5;box-sizing:border-box;}
-.promo__shield{position:absolute;right:16px;top:52px;width:96px;height:108px;
-  filter:drop-shadow(0 10px 18px rgba(182,14,49,.35));}
+.promo__shield{position:absolute;right:12px;top:58px;width:112px;height:126px;
+  filter:drop-shadow(0 12px 22px rgba(182,14,49,.42));}
+/* Quầng sáng tỏa sau khiên */
+.promo::after{content:'';position:absolute;right:-14px;top:36px;width:170px;height:170px;
+  pointer-events:none;border-radius:var(--radius-full);
+  background:radial-gradient(circle,rgba(255,120,150,.38) 0%,rgba(255,120,150,0) 68%);}
+@media (prefers-reduced-motion: no-preference){
+  .promo__shield{animation:shieldFloat 3.8s ease-in-out infinite;}
+  @keyframes shieldFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+}
 .promo__dots{display:flex;justify-content:center;gap:var(--space-1);margin-top:var(--space-4);}
 .promo__dot{width:6px;height:6px;border-radius:var(--radius-full);background:rgba(200,16,46,.22);}
 .promo__dot--on{width:18px;background:var(--color-primary);}
@@ -875,17 +883,25 @@ a{text-decoration:none;color:inherit;}
 .promo__pill{display:inline-block;font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--white);
   background:linear-gradient(160deg,#C4123A,#8E0A28);padding:6px 14px;border-radius:var(--radius-full);
   box-shadow:0 4px 10px rgba(142,10,40,.30);margin-bottom:var(--space-3);}
-.promo__title{font-size:27px;line-height:1.15;font-weight:800;letter-spacing:-.01em;
-  color:var(--gray-900);margin:0 0 var(--space-3);max-width:70%;}
+.promo__title{font-size:26px;line-height:1.12;font-weight:800;letter-spacing:-.02em;
+  color:var(--gray-900);margin:0 0 var(--space-3);white-space:nowrap;position:relative;z-index:1;}
 .promo__title em{font-style:normal;color:var(--color-primary);}
-.promo__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);max-width:72%;}
+.promo__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);max-width:64%;position:relative;z-index:1;}
 .promo__list li{display:flex;align-items:flex-start;gap:var(--space-2);
   font-size:var(--fs-sm);font-weight:var(--fw-medium);color:var(--gray-800);line-height:1.4;}
 .promo__list .icon{flex-shrink:0;width:18px;height:18px;padding:3.5px;margin-top:1px;
   border-radius:var(--radius-full);background:var(--color-primary);color:var(--white);
   font-size:11px;stroke-width:2.5;box-sizing:border-box;}
-.promo__shield{position:absolute;right:16px;top:52px;width:96px;height:108px;
-  filter:drop-shadow(0 10px 18px rgba(182,14,49,.35));}
+.promo__shield{position:absolute;right:12px;top:58px;width:112px;height:126px;
+  filter:drop-shadow(0 12px 22px rgba(182,14,49,.42));}
+/* Quầng sáng tỏa sau khiên */
+.promo::after{content:'';position:absolute;right:-14px;top:36px;width:170px;height:170px;
+  pointer-events:none;border-radius:var(--radius-full);
+  background:radial-gradient(circle,rgba(255,120,150,.38) 0%,rgba(255,120,150,0) 68%);}
+@media (prefers-reduced-motion: no-preference){
+  .promo__shield{animation:shieldFloat 3.8s ease-in-out infinite;}
+  @keyframes shieldFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+}
 .promo__dots{display:flex;justify-content:center;gap:var(--space-1);margin-top:var(--space-4);}
 .promo__dot{width:6px;height:6px;border-radius:var(--radius-full);background:rgba(200,16,46,.22);}
 .promo__dot--on{width:18px;background:var(--color-primary);}
@@ -971,17 +987,25 @@ a{text-decoration:none;color:inherit;}
 .promo__pill{display:inline-block;font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--white);
   background:linear-gradient(160deg,#C4123A,#8E0A28);padding:6px 14px;border-radius:var(--radius-full);
   box-shadow:0 4px 10px rgba(142,10,40,.30);margin-bottom:var(--space-3);}
-.promo__title{font-size:27px;line-height:1.15;font-weight:800;letter-spacing:-.01em;
-  color:var(--gray-900);margin:0 0 var(--space-3);max-width:70%;}
+.promo__title{font-size:26px;line-height:1.12;font-weight:800;letter-spacing:-.02em;
+  color:var(--gray-900);margin:0 0 var(--space-3);white-space:nowrap;position:relative;z-index:1;}
 .promo__title em{font-style:normal;color:var(--color-primary);}
-.promo__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);max-width:72%;}
+.promo__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);max-width:64%;position:relative;z-index:1;}
 .promo__list li{display:flex;align-items:flex-start;gap:var(--space-2);
   font-size:var(--fs-sm);font-weight:var(--fw-medium);color:var(--gray-800);line-height:1.4;}
 .promo__list .icon{flex-shrink:0;width:18px;height:18px;padding:3.5px;margin-top:1px;
   border-radius:var(--radius-full);background:var(--color-primary);color:var(--white);
   font-size:11px;stroke-width:2.5;box-sizing:border-box;}
-.promo__shield{position:absolute;right:16px;top:52px;width:96px;height:108px;
-  filter:drop-shadow(0 10px 18px rgba(182,14,49,.35));}
+.promo__shield{position:absolute;right:12px;top:58px;width:112px;height:126px;
+  filter:drop-shadow(0 12px 22px rgba(182,14,49,.42));}
+/* Quầng sáng tỏa sau khiên */
+.promo::after{content:'';position:absolute;right:-14px;top:36px;width:170px;height:170px;
+  pointer-events:none;border-radius:var(--radius-full);
+  background:radial-gradient(circle,rgba(255,120,150,.38) 0%,rgba(255,120,150,0) 68%);}
+@media (prefers-reduced-motion: no-preference){
+  .promo__shield{animation:shieldFloat 3.8s ease-in-out infinite;}
+  @keyframes shieldFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+}
 .promo__dots{display:flex;justify-content:center;gap:var(--space-1);margin-top:var(--space-4);}
 .promo__dot{width:6px;height:6px;border-radius:var(--radius-full);background:rgba(200,16,46,.22);}
 .promo__dot--on{width:18px;background:var(--color-primary);}
@@ -1152,17 +1176,49 @@ a{text-decoration:none;color:inherit;}
    ================================================================ */
 /* --- Promo container: style toàn cục để dùng được với mọi icon style --- */
 .promo{position:relative;overflow:hidden;
-  background:linear-gradient(150deg,#FCDDE6 0%,#F9CBD9 55%,#F6C2D2 100%);
-  border-radius:var(--radius-xl);padding:var(--space-4) var(--space-4) var(--space-5);
-  box-shadow:0 10px 26px rgba(190,60,95,.18), inset 0 1px 0 rgba(255,255,255,.6);}
+  background:linear-gradient(150deg,#FDDCE7 0%,#F7BFD1 60%,#F2B2C8 100%);
+  border:1.5px solid rgba(255,255,255,.75);
+  border-radius:20px;padding:var(--space-4) var(--space-4) var(--space-5);
+  box-shadow:0 14px 34px rgba(190,60,95,.28), 0 4px 10px rgba(190,60,95,.14),
+    inset 0 1px 0 rgba(255,255,255,.7);}
+/* Vệt sheen kính quét mép trên */
+.promo::before{content:'';position:absolute;inset:0 0 auto 0;height:46%;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,0));
+  border-radius:20px 20px 0 0;}
 
 /* --- BANNER --- */
+/* Promo carousel: vuốt ngang, snap từng slide */
+.promo-car{display:none;position:relative;}
+.promo-car__track{display:flex;gap:var(--space-3);overflow-x:auto;scrollbar-width:none;
+  scroll-snap-type:x mandatory;overscroll-behavior-x:contain;cursor:grab;
+  border-radius:20px;}
+.promo-car__track::-webkit-scrollbar{display:none;}
+.promo-car__track .promo{flex:0 0 100%;scroll-snap-align:center;display:block;}
+.promo-car .promo__dots{margin-top:var(--space-3);}
+/* Slide 2 — đỏ đậm chữ trắng */
+.promo--red{background:linear-gradient(150deg,#E8355B 0%,#C4123A 55%,#A50E2E 100%);
+  border-color:rgba(255,255,255,.35);}
+.promo--red .promo__title{color:var(--white);}
+.promo--red .promo__title em{color:#FFD44D;}
+.promo--red .promo__list li{color:rgba(255,255,255,.94);}
+.promo--red .promo__list .icon{background:rgba(255,255,255,.22);color:var(--white);}
+.promo--red .promo__brand{color:rgba(255,255,255,.9);}
+.promo--red .promo__pill--light{background:var(--white);color:#B60E31;box-shadow:0 4px 10px rgba(0,0,0,.15);}
+.promo--red::after{background:radial-gradient(circle,rgba(255,255,255,.28) 0%,rgba(255,255,255,0) 68%);}
+/* Slide 3 — travel sáng */
+.promo--travel{background:linear-gradient(150deg,#FFF3F6 0%,#FBDDE7 60%,#F7CBDB 100%);}
+/* Ảnh minh hoạ slide 2/3 */
+.promo__art{position:absolute;right:14px;top:60px;width:104px;height:104px;
+  filter:drop-shadow(0 10px 18px rgba(120,0,20,.30));}
+@media (prefers-reduced-motion: no-preference){
+  .promo__art{animation:shieldFloat 3.8s ease-in-out infinite;}
+}
 [data-banner="photo"] .banner__track{display:flex;}
 [data-banner="photo"] .banner__dots{display:flex;}
-[data-banner="photo"] .promo{display:none;}
+[data-banner="photo"] .promo-car{display:none;}
 [data-banner="promo"] .banner__track{display:none;}
 [data-banner="promo"] .banner__dots{display:none;}
-[data-banner="promo"] .promo{display:block;}
+[data-banner="promo"] .promo-car{display:block;}
 
 /* --- BACKGROUND (token đặt sau mọi theme nên thắng) --- */
 [data-bg="white"]{--color-bg:var(--white);--color-hero-from:var(--white);--color-hero-to:var(--white);--hero-text:var(--gray-900);--hero-search-bg:var(--white);}
@@ -1204,6 +1260,86 @@ a{text-decoration:none;color:inherit;}
   padding:var(--space-2) var(--space-3);}
 [data-nav="float"] .bottomnav__item{color:#8A8590;}
 [data-nav="float"] .bottomnav__item--on{color:var(--color-primary);font-weight:var(--fw-bold);}
+
+/* --- MÀU BANNER PROMO (áp cho cả 3 slide) --- */
+[data-bnc="burgundy"] .promo{background:linear-gradient(150deg,#A81236 0%,#7A0C26 55%,#5C0619 100%);border-color:rgba(255,255,255,.30);}
+[data-bnc="burgundy"] .promo__title em{color:#FFD44D;}
+[data-bnc="burgundy"] .promo__pill{background:var(--white);color:#7A0C26;box-shadow:0 4px 10px rgba(0,0,0,.18);}
+[data-bnc="fuchsia"] .promo{background:linear-gradient(150deg,#FF2E63 0%,#E80A4C 55%,#C70040 100%);border-color:rgba(255,255,255,.30);}
+[data-bnc="fuchsia"] .promo__title em{color:#FFE45E;}
+[data-bnc="fuchsia"] .promo__pill{background:var(--white);color:#C70040;box-shadow:0 4px 10px rgba(0,0,0,.18);}
+[data-bnc="plum"] .promo{background:linear-gradient(150deg,#8E3AA0 0%,#6B2380 55%,#4A1259 100%);border-color:rgba(255,255,255,.30);}
+[data-bnc="plum"] .promo__title em{color:#FF8FB1;}
+[data-bnc="plum"] .promo__pill{background:var(--white);color:#6B2380;box-shadow:0 4px 10px rgba(0,0,0,.18);}
+[data-bnc="coral"] .promo{background:linear-gradient(150deg,#FF7A52 0%,#F14A45 55%,#E5173F 100%);border-color:rgba(255,255,255,.30);}
+[data-bnc="coral"] .promo__title em{color:#FFF06B;}
+[data-bnc="coral"] .promo__pill{background:var(--white);color:#E5173F;box-shadow:0 4px 10px rgba(0,0,0,.18);}
+[data-bnc="navy"] .promo{background:linear-gradient(150deg,#24356E 0%,#182451 55%,#0E1838 100%);border-color:rgba(255,255,255,.30);}
+[data-bnc="navy"] .promo__title em{color:#FF5F7E;}
+[data-bnc="navy"] .promo__pill{background:var(--white);color:#182451;box-shadow:0 4px 10px rgba(0,0,0,.18);}
+[data-bnc="burgundy"] .promo__title,
+[data-bnc="fuchsia"] .promo__title,
+[data-bnc="plum"] .promo__title,
+[data-bnc="coral"] .promo__title,
+[data-bnc="navy"] .promo__title{color:var(--white);}
+[data-bnc="burgundy"] .promo__list li,
+[data-bnc="fuchsia"] .promo__list li,
+[data-bnc="plum"] .promo__list li,
+[data-bnc="coral"] .promo__list li,
+[data-bnc="navy"] .promo__list li{color:rgba(255,255,255,.94);}
+[data-bnc="burgundy"] .promo__list .icon,
+[data-bnc="fuchsia"] .promo__list .icon,
+[data-bnc="plum"] .promo__list .icon,
+[data-bnc="coral"] .promo__list .icon,
+[data-bnc="navy"] .promo__list .icon{background:rgba(255,255,255,.22);color:var(--white);}
+[data-bnc="burgundy"] .promo__brand,
+[data-bnc="fuchsia"] .promo__brand,
+[data-bnc="plum"] .promo__brand,
+[data-bnc="coral"] .promo__brand,
+[data-bnc="navy"] .promo__brand{color:rgba(255,255,255,.9);}
+[data-bnc="burgundy"] .promo::after,
+[data-bnc="fuchsia"] .promo::after,
+[data-bnc="plum"] .promo::after,
+[data-bnc="coral"] .promo::after,
+[data-bnc="navy"] .promo::after{background:radial-gradient(circle,rgba(255,255,255,.26) 0%,rgba(255,255,255,0) 68%);}
+[data-bnc="glass"] .promo{border:2px solid transparent;
+  background:linear-gradient(180deg,#FFFFFF,#FFF0F4) padding-box,
+             linear-gradient(135deg,#E5173F,#FF7A9C) border-box;}
+[data-bnc="glass"] .promo__title{color:var(--gray-900);}
+[data-bnc="glass"] .promo__list li{color:var(--gray-800);}
+[data-bnc="glass"] .promo__list .icon{background:var(--color-primary);color:var(--white);}
+[data-bnc="glass"] .promo__brand{color:var(--red-700);}
+[data-bnc="glass"] .promo__pill{background:linear-gradient(160deg,#C4123A,#8E0A28);color:var(--white);}
+
+/* --- ĐƯỜNG NÉT QUỸ ĐẠO trong phần icon dịch vụ --- */
+/* Ẩn hoàn toàn */
+[data-lane="off"] .arc__rail,[data-lane="off"] .arc__lane1,[data-lane="off"] .arc__lane2{display:none;}
+/* Chấm bi tròn — mềm mại, hiện đại */
+[data-lane="dots"] .arc__rail path,[data-lane="dots"] .arc__lane1 path,[data-lane="dots"] .arc__lane2 path{
+  stroke-dasharray:0.1 9;stroke-width:3;stroke-linecap:round;opacity:.45;}
+/* Nét liền mờ hai đầu — tinh tế, tối giản */
+[data-lane="solid"] .arc__rail path,[data-lane="solid"] .arc__lane1 path,[data-lane="solid"] .arc__lane2 path{
+  stroke-dasharray:none;stroke-width:1.5;opacity:.30;}
+[data-lane="solid"] .arc__rail,[data-lane="solid"] .arc__lane1,[data-lane="solid"] .arc__lane2{
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);}
+/* Nét đứt phát sáng — nổi bật, làm điểm nhấn */
+[data-lane="glow"] .arc__rail path,[data-lane="glow"] .arc__lane1 path,[data-lane="glow"] .arc__lane2 path{
+  stroke-width:2.5;opacity:.85;filter:drop-shadow(0 0 4px rgba(229,23,63,.75));}
+
+/* --- TAG KHUYẾN MẠI trên thẻ sản phẩm --- */
+[data-promo="off"] .pcard__promo{display:none;}
+/* Kiểu 1: Pill gradient đỏ góc phải (mặc định của tag) */
+[data-promo="pill"] .pcard__promo{display:inline-block;}
+/* Kiểu 2: Ribbon chéo góc trái — kiểu sale cổ điển */
+[data-promo="ribbon"] .pcard{overflow:hidden;}
+[data-promo="ribbon"] .pcard__promo{display:block;top:16px;right:auto;left:-36px;width:120px;
+  padding:4px 0;transform:rotate(-45deg);border-radius:0;text-align:center;
+  font-size:10px;letter-spacing:.08em;box-shadow:0 3px 10px rgba(229,23,63,.35);}
+/* Kiểu 3: Nhãn lửa cam nhạt — flash sale nhẹ nhàng */
+[data-promo="flame"] .pcard__promo{display:inline-flex;align-items:center;gap:3px;
+  background:#FFF1E6;color:#E8590C;border:1px solid #FFDFC2;box-shadow:none;}
+[data-promo="flame"] .pcard__promo::before{content:'🔥';font-size:11px;line-height:1;}
 
 /* --- SỔ TAY HƯỚNG DẪN --- */
 [data-guide="tint"] .guide{background:var(--red-50);border:none;box-shadow:none;}
@@ -1318,8 +1454,10 @@ a{text-decoration:none;color:inherit;}
       <div class="banner">
         <div class="banner__track" id="bannerTrack"><img class="banner__slide" src="https://api24cdn.vtmoney.vn/ntbh-cms-service-uat/banners/1782699247-6bcdc897-9385-4ef5-a01d-9f0876959c47/b93b6e8f-f7cb-40a4-ba0d-09ba76d1ce83-mobile.png" alt="Khuyến mãi 1" loading="eager" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'banner__slide'}))"><img class="banner__slide" src="https://api24cdn.vtmoney.vn/ntbh-cms-service-uat/banners/1780629460-c3f8870a-b60f-4052-a414-9333ad40f9e1/7fd4513c-8436-4c82-9a20-8c03759e5105-mobile.png" alt="Khuyến mãi 2" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'banner__slide'}))"><img class="banner__slide" src="https://api24cdn.vtmoney.vn/ntbh-cms-service-uat/banners/1780629398-93f829f2-0f6d-483e-9e0c-120c88b21444/146172ce-00e6-449b-8c66-39fc034d7ff1-mobile.png" alt="Khuyến mãi 3" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'banner__slide'}))"></div>
         <div class="banner__dots" id="bannerDots"><span class="banner__dot banner__dot--on"></span><span class="banner__dot"></span><span class="banner__dot"></span></div>
-        <!-- Banner promo dạng CMS — chỉ hiện ở Theme 1 -->
-        <article class="promo" aria-label="Bảo hiểm thân vỏ ô tô">
+        <!-- Banner promo: carousel vuốt ngang 3 slide -->
+        <div class="promo-car">
+          <div class="promo-car__track" id="promoTrack">
+            <article class="promo" aria-label="Bảo hiểm thân vỏ ô tô">
           <span class="promo__brand"><svg class="icon"><use href="#i-shield-check"/></svg>viettel money</span>
           <span class="promo__pill">Bảo hiểm thân vỏ ô tô</span>
           <h2 class="promo__title">TIẾT KIỆM <em>3</em> TRIỆU</h2>
@@ -1336,8 +1474,41 @@ a{text-decoration:none;color:inherit;}
             <circle cx="48" cy="52" r="17" fill="none" stroke="#fff" stroke-width="4"/>
             <path d="M40 52 l6 6 l11 -12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <div class="promo__dots"><span class="promo__dot promo__dot--on"></span><span class="promo__dot"></span><span class="promo__dot"></span></div>
         </article>
+            <article class="promo promo--red" aria-label="Bảo hiểm sức khoẻ">
+              <span class="promo__brand"><svg class="icon"><use href="#i-shield-check"/></svg>viettel money</span>
+              <span class="promo__pill promo__pill--light">Bảo hiểm sức khoẻ</span>
+              <h2 class="promo__title">CHI TRẢ ĐẾN <em>1 TỶ</em></h2>
+              <ul class="promo__list">
+                <li><svg class="icon"><use href="#i-heart"/></svg>Bảo lãnh viện phí tại 300+ bệnh viện</li>
+                <li><svg class="icon"><use href="#i-flame"/></svg>Khám ngoại trú, nha khoa, thai sản</li>
+                <li><svg class="icon"><use href="#i-shield-check"/></svg>Phê duyệt online trong 5 phút</li>
+              </ul>
+              <svg class="promo__art" viewBox="0 0 96 96" aria-hidden="true">
+                <path d="M48 82 C20 62 10 46 10 32 A18 18 0 0 1 48 22 A18 18 0 0 1 86 32 C86 46 76 62 48 82 Z"
+                  fill="rgba(255,255,255,.92)"/>
+                <path d="M28 44 h12 l5 -10 l8 18 l5 -8 h14" fill="none" stroke="#C4123A" stroke-width="4.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </article>
+            <article class="promo promo--travel" aria-label="Bảo hiểm du lịch">
+              <span class="promo__brand"><svg class="icon"><use href="#i-shield-check"/></svg>viettel money</span>
+              <span class="promo__pill">Bảo hiểm du lịch</span>
+              <h2 class="promo__title">GIẢM <em>50%</em> HÔM NAY</h2>
+              <ul class="promo__list">
+                <li><svg class="icon"><use href="#i-plane"/></svg>Bảo vệ toàn cầu, visa Schengen</li>
+                <li><svg class="icon"><use href="#i-flame"/></svg>Trễ chuyến, mất hành lý đều được đền</li>
+                <li><svg class="icon"><use href="#i-shield-check"/></svg>Chỉ từ 9.000đ/ngày</li>
+              </ul>
+              <svg class="promo__art promo__art--plane" viewBox="0 0 96 96" aria-hidden="true">
+                <circle cx="48" cy="48" r="40" fill="rgba(229,23,63,.10)"/>
+                <circle cx="48" cy="48" r="40" fill="none" stroke="rgba(229,23,63,.35)" stroke-width="1.5" stroke-dasharray="3 7"/>
+                <g transform="rotate(38 48 48)"><path d="M48 18 L54 42 L76 50 L54 54 L52 74 L48 62 L44 74 L42 54 L20 50 L42 42 Z" fill="#C4123A"/></g>
+              </svg>
+            </article>
+          </div>
+          <div class="promo__dots" id="promoDots"><span class="promo__dot promo__dot--on"></span><span class="promo__dot"></span><span class="promo__dot"></span></div>
+        </div>
       </div>
     </header>
 
@@ -1464,9 +1635,17 @@ a{text-decoration:none;color:inherit;}
           <button data-val="7">Bệ tròn</button><button data-val="8">Bệ khiên</button><button data-val="1">Bệ cổ điển</button><button data-val="2">Nhiều màu</button><button data-val="3">Cổ điển sáng</button><button data-val="4">Radar</button><button data-val="5">Dải lụa</button><button data-val="6">Vòm đỏ</button>
         </div>
       </div>
+      <div class="builder__group" data-group="lane">
+        <span class="builder__label">Đường quỹ đạo icon</span>
+        <div class="builder__chips"><button data-val="dash">Nét đứt</button><button data-val="dots">Chấm bi</button><button data-val="solid">Nét liền mờ</button><button data-val="glow">Phát sáng</button><button data-val="off">Ẩn</button></div>
+      </div>
       <div class="builder__group" data-group="banner">
         <span class="builder__label">Banner</span>
         <div class="builder__chips"><button data-val="photo">Ảnh carousel</button><button data-val="promo">Promo CMS</button></div>
+      </div>
+      <div class="builder__group" data-group="bnc">
+        <span class="builder__label">Màu banner</span>
+        <div class="builder__chips"><button data-val="auto">Mặc định</button><button data-val="burgundy">Burgundy+Gold</button><button data-val="fuchsia">Fuchsia</button><button data-val="plum">Tím plum</button><button data-val="coral">Cam san hô</button><button data-val="navy">Navy đêm</button><button data-val="glass">Trắng viền đỏ</button></div>
       </div>
       <div class="builder__group" data-group="bg">
         <span class="builder__label">Nền</span>
@@ -1479,6 +1658,10 @@ a{text-decoration:none;color:inherit;}
       <div class="builder__group" data-group="nav">
         <span class="builder__label">Menu bar</span>
         <div class="builder__chips"><button data-val="flat">Thanh phẳng</button><button data-val="float">Card nổi</button></div>
+      </div>
+      <div class="builder__group" data-group="promo">
+        <span class="builder__label">Tag khuyến mại (SP phổ biến)</span>
+        <div class="builder__chips"><button data-val="off">Ẩn</button><button data-val="pill">Pill đỏ</button><button data-val="ribbon">Ribbon chéo</button><button data-val="flame">Nhãn lửa 🔥</button></div>
       </div>
       <div class="builder__group" data-group="guide">
         <span class="builder__label">Sổ tay hướng dẫn</span>
@@ -1514,9 +1697,12 @@ a{text-decoration:none;color:inherit;}
   const GROUPS = {
     icons:    { vals:['1','2','3','4','5','6','7','8'], def:'8' },
     banner:   { vals:['photo','promo'],                 def:'promo' },
+    lane:     { vals:['dash','dots','solid','glow','off'], def:'dash' },
+    bnc:      { vals:['auto','burgundy','fuchsia','plum','coral','navy','glass'], def:'auto' },
     bg:       { vals:['auto','white','rose','flow','light','red'], def:'flow' },
     insurers: { vals:['logos','pill'],                  def:'pill' },
     nav:      { vals:['flat','float'],                  def:'float' },
+    promo:    { vals:['off','pill','ribbon','flame'],   def:'off' },
     guide:    { vals:['card','tint','off'],             def:'card' },
   };
   const state = {};
@@ -1530,7 +1716,7 @@ a{text-decoration:none;color:inherit;}
     if (!GROUPS[group] || !GROUPS[group].vals.includes(val)) val = GROUPS[group].def;
     state[group] = val;
     if (group === 'icons') { setTheme(val); }
-    else if (val === 'auto' || (group === 'guide' && val === 'card')) { delete root.dataset[group]; }
+    else if (val === 'auto' || (group === 'guide' && val === 'card') || (group === 'lane' && val === 'dash')) { delete root.dataset[group]; }
     else { root.dataset[group] = val; }
     // cập nhật chip
     const panel = document.getElementById('builder');
@@ -1567,6 +1753,28 @@ a{text-decoration:none;color:inherit;}
       b.textContent = 'Đã sao chép!'; setTimeout(()=>b.textContent='Sao chép link cấu hình', 1600);
     });
   });
+})();
+
+/* ---- Promo carousel (vuốt ngang + dots + autoplay) ---- */
+(function(){
+  const track = document.getElementById('promoTrack');
+  const dotsWrap = document.getElementById('promoDots');
+  if (!track || !dotsWrap) return;
+  const dots = [...dotsWrap.children];
+  const sync = () => {
+    const i = Math.round(track.scrollLeft / track.clientWidth);
+    dots.forEach((d,k)=>d.classList.toggle('promo__dot--on', k===i));
+  };
+  track.addEventListener('scroll', () => requestAnimationFrame(sync), {passive:true});
+  let timer=null, idle=null;
+  const stop = () => { if (timer){clearInterval(timer); timer=null;} };
+  const start = () => { stop(); timer = setInterval(()=>{
+    if (track.clientWidth === 0) return;               // đang ẩn (banner=photo)
+    const next = (Math.round(track.scrollLeft/track.clientWidth)+1) % dots.length;
+    track.scrollTo({left: next*track.clientWidth, behavior:'smooth'});
+  }, 5000); };
+  start();
+  track.addEventListener('pointerdown', ()=>{ stop(); clearTimeout(idle); idle=setTimeout(start, 8000); });
 })();
 
 /* ---- Banner carousel (auto-rotate + dot sync) ---- */
