@@ -187,12 +187,12 @@ a{text-decoration:none;color:inherit;}
 
 /* ---------- 4. APP SHELL / LAYOUT ---------- */
 .app{
-  width:100%; max-width:420px; min-height:100vh;
+  width:100%; max-width:420px; height:100vh; height:100dvh;
   background:var(--color-bg); position:relative;
   display:flex; flex-direction:column;
   box-shadow:var(--shadow-lg);
 }
-.app__scroll{flex:1;overflow-y:auto;overflow-x:clip;padding-bottom:96px;}
+.app__scroll{flex:1;overflow-y:auto;overflow-x:clip;padding-bottom:calc(120px + env(safe-area-inset-bottom,0px));}
 .section{padding:var(--space-7) var(--space-4) 0;}
 .section__head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:var(--space-4);}
 .section__title{font-size:var(--fs-lg);font-weight:var(--fw-bold);letter-spacing:-.01em;}
@@ -1165,6 +1165,12 @@ a{text-decoration:none;color:inherit;}
 [data-banner="promo"] .promo{display:block;}
 
 /* --- BACKGROUND (token đặt sau mọi theme nên thắng) --- */
+[data-bg="white"]{--color-bg:var(--white);--color-hero-from:var(--white);--color-hero-to:var(--white);--hero-text:var(--gray-900);--hero-search-bg:var(--white);}
+[data-bg="white"] .banner__dot{background:var(--gray-300);}
+[data-bg="white"] .banner__dot--on{background:var(--color-primary);}
+[data-bg="white"] .search__input{border:1px solid var(--color-border);box-shadow:var(--shadow-sm);}
+[data-bg="white"] .search__cart{background:var(--white);border:1px solid var(--color-border);box-shadow:var(--shadow-sm);}
+[data-bg="white"] .hero{border-bottom:1px solid var(--gray-100);}
 [data-bg="rose"]{--color-bg:#F8ECF0;--color-hero-from:#FBE3E9;--color-hero-to:#F8ECF0;--hero-text:var(--gray-900);--hero-search-bg:var(--white);}
 [data-bg="flow"]{--color-bg:#FDF8FA;--color-hero-from:#FBDDE7;--color-hero-to:#F7D2DE;--hero-text:var(--gray-900);--hero-search-bg:var(--white);}
 [data-bg="light"]{--color-bg:var(--white);--color-hero-from:var(--red-50);--color-hero-to:var(--white);--hero-text:var(--gray-900);--hero-search-bg:var(--white);}
@@ -1192,9 +1198,10 @@ a{text-decoration:none;color:inherit;}
 [data-nav="flat"] .bottomnav{left:0;right:0;bottom:0;border-radius:0;background:var(--color-surface);
   border-top:1px solid var(--color-border);box-shadow:none;
   padding:var(--space-2) var(--space-2) calc(var(--space-2) + env(safe-area-inset-bottom));}
-[data-nav="float"] .bottomnav{left:12px;right:12px;bottom:10px;border:none;border-radius:22px;
+[data-nav="float"] .bottomnav{left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom,0px));
+  border:none;border-radius:22px;
   background:var(--white);box-shadow:0 10px 30px rgba(190,60,95,.20);
-  padding:var(--space-2) var(--space-3) calc(var(--space-2) + env(safe-area-inset-bottom));}
+  padding:var(--space-2) var(--space-3);}
 [data-nav="float"] .bottomnav__item{color:#8A8590;}
 [data-nav="float"] .bottomnav__item--on{color:var(--color-primary);font-weight:var(--fw-bold);}
 
@@ -1204,7 +1211,7 @@ a{text-decoration:none;color:inherit;}
 [data-guide="off"] .section.guide-section{display:none;}
 
 /* --- Builder panel --- */
-.builder-toggle{position:absolute;right:14px;bottom:96px;z-index:9;width:44px;height:44px;
+.builder-toggle{position:absolute;right:14px;bottom:calc(96px + env(safe-area-inset-bottom,0px));z-index:9;width:44px;height:44px;
   border-radius:var(--radius-full);border:none;cursor:pointer;
   background:var(--color-primary);color:var(--white);font-size:20px;
   display:flex;align-items:center;justify-content:center;
@@ -1463,7 +1470,7 @@ a{text-decoration:none;color:inherit;}
       </div>
       <div class="builder__group" data-group="bg">
         <span class="builder__label">Nền</span>
-        <div class="builder__chips"><button data-val="auto">Theo icon</button><button data-val="rose">Hồng pastel</button><button data-val="flow">Hồng → trắng</button><button data-val="light">Sáng</button><button data-val="red">Đỏ đậm</button></div>
+        <div class="builder__chips"><button data-val="auto">Theo icon</button><button data-val="white">Trắng</button><button data-val="rose">Hồng pastel</button><button data-val="flow">Hồng → trắng</button><button data-val="light">Sáng</button><button data-val="red">Đỏ đậm</button></div>
       </div>
       <div class="builder__group" data-group="insurers">
         <span class="builder__label">Nhà bảo hiểm</span>
@@ -1507,7 +1514,7 @@ a{text-decoration:none;color:inherit;}
   const GROUPS = {
     icons:    { vals:['1','2','3','4','5','6','7','8'], def:'8' },
     banner:   { vals:['photo','promo'],                 def:'promo' },
-    bg:       { vals:['auto','rose','flow','light','red'], def:'flow' },
+    bg:       { vals:['auto','white','rose','flow','light','red'], def:'flow' },
     insurers: { vals:['logos','pill'],                  def:'pill' },
     nav:      { vals:['flat','float'],                  def:'float' },
     guide:    { vals:['card','tint','off'],             def:'card' },
