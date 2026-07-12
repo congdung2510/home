@@ -1146,6 +1146,90 @@ a{text-decoration:none;color:inherit;}
 /* Card trắng tinh nổi nhẹ trên nền gần-trắng (giao thoa 3) */
 [data-theme="8"] .pcard,[data-theme="8"] .insurers-pill{box-shadow:0 6px 20px rgba(190,60,95,.10);}
 
+
+/* ================================================================
+   16. BUILDER OPTIONS — lớp tùy biến từng khối, ghi đè mọi theme
+   ================================================================ */
+/* --- Promo container: style toàn cục để dùng được với mọi icon style --- */
+.promo{position:relative;overflow:hidden;
+  background:linear-gradient(150deg,#FCDDE6 0%,#F9CBD9 55%,#F6C2D2 100%);
+  border-radius:var(--radius-xl);padding:var(--space-4) var(--space-4) var(--space-5);
+  box-shadow:0 10px 26px rgba(190,60,95,.18), inset 0 1px 0 rgba(255,255,255,.6);}
+
+/* --- BANNER --- */
+[data-banner="photo"] .banner__track{display:flex;}
+[data-banner="photo"] .banner__dots{display:flex;}
+[data-banner="photo"] .promo{display:none;}
+[data-banner="promo"] .banner__track{display:none;}
+[data-banner="promo"] .banner__dots{display:none;}
+[data-banner="promo"] .promo{display:block;}
+
+/* --- BACKGROUND (token đặt sau mọi theme nên thắng) --- */
+[data-bg="rose"]{--color-bg:#F8ECF0;--color-hero-from:#FBE3E9;--color-hero-to:#F8ECF0;--hero-text:var(--gray-900);--hero-search-bg:var(--white);}
+[data-bg="flow"]{--color-bg:#FDF8FA;--color-hero-from:#FBDDE7;--color-hero-to:#F7D2DE;--hero-text:var(--gray-900);--hero-search-bg:var(--white);}
+[data-bg="light"]{--color-bg:var(--white);--color-hero-from:var(--red-50);--color-hero-to:var(--white);--hero-text:var(--gray-900);--hero-search-bg:var(--white);}
+[data-bg="red"]{--color-bg:var(--white);--color-hero-from:#D4001A;--color-hero-to:#E8112D;--hero-text:var(--white);--hero-search-bg:var(--white);}
+/* dots banner hợp nền */
+[data-bg="rose"] .banner__dot,[data-bg="flow"] .banner__dot,[data-bg="light"] .banner__dot{background:var(--gray-300);}
+[data-bg="rose"] .banner__dot--on,[data-bg="flow"] .banner__dot--on,[data-bg="light"] .banner__dot--on{background:var(--color-primary);}
+[data-bg="red"] .banner__dot{background:rgba(255,255,255,.4);}
+[data-bg="red"] .banner__dot--on{background:var(--white);}
+/* search + giỏ hàng hợp nền */
+[data-bg="rose"] .search__input,[data-bg="flow"] .search__input{border:none;box-shadow:0 6px 18px rgba(190,60,95,.12);}
+[data-bg="rose"] .search__cart,[data-bg="flow"] .search__cart{background:var(--white);border:none;box-shadow:0 6px 18px rgba(190,60,95,.12);}
+[data-bg="light"] .search__input{border:1px solid var(--color-border);box-shadow:var(--shadow-sm);}
+[data-bg="light"] .search__cart{background:var(--white);border:1px solid var(--red-100);box-shadow:var(--shadow-sm);}
+[data-bg="red"] .search__input{border:none;box-shadow:0 8px 22px rgba(120,0,15,.30);}
+[data-bg="red"] .search__cart{background:var(--white);border:none;box-shadow:0 8px 22px rgba(120,0,15,.30);}
+
+/* --- NHÀ BẢO HIỂM --- */
+[data-insurers="logos"] .insurers{display:flex;}
+[data-insurers="logos"] .insurers-pill{display:none;}
+[data-insurers="pill"] .insurers{display:none;}
+[data-insurers="pill"] .insurers-pill{display:flex;}
+
+/* --- MENU BAR --- */
+[data-nav="flat"] .bottomnav{left:0;right:0;bottom:0;border-radius:0;background:var(--color-surface);
+  border-top:1px solid var(--color-border);box-shadow:none;
+  padding:var(--space-2) var(--space-2) calc(var(--space-2) + env(safe-area-inset-bottom));}
+[data-nav="float"] .bottomnav{left:12px;right:12px;bottom:10px;border:none;border-radius:22px;
+  background:var(--white);box-shadow:0 10px 30px rgba(190,60,95,.20);
+  padding:var(--space-2) var(--space-3) calc(var(--space-2) + env(safe-area-inset-bottom));}
+[data-nav="float"] .bottomnav__item{color:#8A8590;}
+[data-nav="float"] .bottomnav__item--on{color:var(--color-primary);font-weight:var(--fw-bold);}
+
+/* --- SỔ TAY HƯỚNG DẪN --- */
+[data-guide="tint"] .guide{background:var(--red-50);border:none;box-shadow:none;}
+[data-guide="tint"] .guide__icon{background:var(--white);}
+[data-guide="off"] .section.guide-section{display:none;}
+
+/* --- Builder panel --- */
+.builder-toggle{position:absolute;right:14px;bottom:96px;z-index:9;width:44px;height:44px;
+  border-radius:var(--radius-full);border:none;cursor:pointer;
+  background:var(--color-primary);color:var(--white);font-size:20px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 20px rgba(200,16,46,.35);
+  transition:transform var(--dur) var(--ease),box-shadow var(--dur);}
+.builder-toggle:active{transform:scale(.92);}
+.builder-toggle.open{background:var(--gray-900);box-shadow:0 8px 20px rgba(0,0,0,.30);}
+.builder--hidden{display:none;}
+.builder{animation:riseIn .3s var(--ease);}
+.builder{margin:var(--space-6) var(--space-4) var(--space-4);padding:var(--space-4);
+  background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);}
+.builder__title{margin:0 0 var(--space-3);font-size:var(--fs-md);font-weight:var(--fw-bold);color:var(--color-text);}
+.builder__group{margin-bottom:var(--space-3);}
+.builder__label{display:block;font-size:var(--fs-xs);font-weight:var(--fw-semibold);
+  color:var(--color-text-muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;}
+.builder__chips{display:flex;flex-wrap:wrap;gap:6px;}
+.builder__chips button{font-size:var(--fs-sm);padding:6px 12px;border-radius:var(--radius-full);
+  border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);
+  cursor:pointer;transition:all var(--dur);}
+.builder__chips button.on{background:var(--color-primary);border-color:var(--color-primary);
+  color:var(--white);font-weight:var(--fw-semibold);}
+.builder__share{width:100%;margin-top:var(--space-2);padding:10px;border-radius:var(--radius-md);
+  border:1px dashed var(--color-border);background:transparent;color:var(--color-primary);
+  font-size:var(--fs-sm);font-weight:var(--fw-semibold);cursor:pointer;}
+
 /* ---------- 15. RESPONSIVE ---------- */
 /* Mobile-first mặc định. Tablet/desktop: bo khung app, header sticky nổi bật hơn */
 @media (min-width:721px){
@@ -1351,7 +1435,7 @@ a{text-decoration:none;color:inherit;}
     </section>
 
     <!-- ============ GUIDE ============ -->
-    <section class="section">
+    <section class="section guide-section">
       <div class="section__head"><h2 class="section__title">Sổ tay hướng dẫn</h2></div>
       <div class="guide">
         <div class="guide__item"><span class="guide__icon"><svg class="icon"><use href="#i-help-circle"/></svg></span><span class="guide__label">Mua bảo hiểm như thế nào?</span></div>
@@ -1364,13 +1448,36 @@ a{text-decoration:none;color:inherit;}
     </section>
 
     <!-- ============ THEME SWITCHER (nhỏ gọn, cuối trang) ============ -->
-    <div class="themebar" role="group" aria-label="Chọn giao diện">
-      <span class="themebar__label">Giao diện:</span>
-      <div class="themebar__seg" id="themeSeg">
-        <button class="themebar__btn themebar__btn--on" data-theme-btn="1">1</button><button class="themebar__btn" data-theme-btn="2">2</button>
-        
-        <button class="themebar__btn" data-theme-btn="3">3</button><button class="themebar__btn" data-theme-btn="4">4</button><button class="themebar__btn" data-theme-btn="5">5</button><button class="themebar__btn" data-theme-btn="6">6</button><button class="themebar__btn" data-theme-btn="7">7</button><button class="themebar__btn" data-theme-btn="8">8</button>
+    <button class="builder-toggle" id="builderToggle" aria-expanded="false" aria-controls="builder" title="Tùy biến giao diện"><svg class="icon"><use href="#i-grid"/></svg></button>
+    <div class="builder builder--hidden" id="builder" aria-label="Tùy biến giao diện">
+      <p class="builder__title">Tùy biến giao diện</p>
+      <div class="builder__group" data-group="icons">
+        <span class="builder__label">Icon dịch vụ</span>
+        <div class="builder__chips">
+          <button data-val="7">Bệ tròn</button><button data-val="8">Bệ khiên</button><button data-val="1">Bệ cổ điển</button><button data-val="2">Nhiều màu</button><button data-val="3">Cổ điển sáng</button><button data-val="4">Radar</button><button data-val="5">Dải lụa</button><button data-val="6">Vòm đỏ</button>
+        </div>
       </div>
+      <div class="builder__group" data-group="banner">
+        <span class="builder__label">Banner</span>
+        <div class="builder__chips"><button data-val="photo">Ảnh carousel</button><button data-val="promo">Promo CMS</button></div>
+      </div>
+      <div class="builder__group" data-group="bg">
+        <span class="builder__label">Nền</span>
+        <div class="builder__chips"><button data-val="auto">Theo icon</button><button data-val="rose">Hồng pastel</button><button data-val="flow">Hồng → trắng</button><button data-val="light">Sáng</button><button data-val="red">Đỏ đậm</button></div>
+      </div>
+      <div class="builder__group" data-group="insurers">
+        <span class="builder__label">Nhà bảo hiểm</span>
+        <div class="builder__chips"><button data-val="logos">Logo lớn</button><button data-val="pill">Pill + chip</button></div>
+      </div>
+      <div class="builder__group" data-group="nav">
+        <span class="builder__label">Menu bar</span>
+        <div class="builder__chips"><button data-val="flat">Thanh phẳng</button><button data-val="float">Card nổi</button></div>
+      </div>
+      <div class="builder__group" data-group="guide">
+        <span class="builder__label">Sổ tay hướng dẫn</span>
+        <div class="builder__chips"><button data-val="card">Thẻ trắng</button><button data-val="tint">Nền hồng</button><button data-val="off">Ẩn</button></div>
+      </div>
+      <button class="builder__share" id="builderShare">Sao chép link cấu hình</button>
     </div>
 
   </div><!-- /app__scroll -->
@@ -1392,28 +1499,67 @@ a{text-decoration:none;color:inherit;}
 /* ---- Theme switcher (segmented + URL param ?theme=N để chụp độc lập) ---- */
 (function(){
   const root = document.documentElement;
-  const seg = document.getElementById('themeSeg');
-  const VALID_THEMES = ['1','2','3','4','5','6','7','8']; // theme cũ 2,3 đã rào (_2,_3), không cho kích hoạt
+  /* ================= BUILDER ENGINE =================
+     icons: điều khiển bằng data-theme (1-8, engine sẵn có)
+     banner/bg/insurers/nav/guide: attribute độc lập trên <html>,
+     ghi đè theme qua lớp CSS 16. BUILDER OPTIONS.        */
+  const VALID_THEMES = ['1','2','3','4','5','6','7','8'];
+  const GROUPS = {
+    icons:    { vals:['1','2','3','4','5','6','7','8'], def:'8' },
+    banner:   { vals:['photo','promo'],                 def:'promo' },
+    bg:       { vals:['auto','rose','flow','light','red'], def:'flow' },
+    insurers: { vals:['logos','pill'],                  def:'pill' },
+    nav:      { vals:['flat','float'],                  def:'float' },
+    guide:    { vals:['card','tint','off'],             def:'card' },
+  };
+  const state = {};
   function setTheme(n){
-    if (!VALID_THEMES.includes(String(n))) n = '1';
+    if (!VALID_THEMES.includes(String(n))) n = GROUPS.icons.def;
     root.dataset.theme = n;
-    seg.querySelectorAll('[data-theme-btn]').forEach(b =>
-      b.classList.toggle('themebar__btn--on', b.dataset.themeBtn === String(n)));
-    // re-init layout-dependent widgets for the newly visible theme
     initArc(); initBannerDots();
     if (window.__arcRender) window.__arcRender();
   }
-  seg.addEventListener('click', e => {
-    const btn = e.target.closest('[data-theme-btn]');
-    if (btn) setTheme(btn.dataset.themeBtn);
+  function applyOption(group, val){
+    if (!GROUPS[group] || !GROUPS[group].vals.includes(val)) val = GROUPS[group].def;
+    state[group] = val;
+    if (group === 'icons') { setTheme(val); }
+    else if (val === 'auto' || (group === 'guide' && val === 'card')) { delete root.dataset[group]; }
+    else { root.dataset[group] = val; }
+    // cập nhật chip
+    const panel = document.getElementById('builder');
+    if (panel) panel.querySelectorAll(`[data-group="${group}"] button`).forEach(b =>
+      b.classList.toggle('on', b.dataset.val === val));
+  }
+  window.__setTheme = setTheme;           // tương thích cũ
+  window.__applyOption = applyOption;
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(location.search);
+    const legacyTheme = params.get('theme');
+    for (const g of Object.keys(GROUPS)){
+      let v = params.get(g);
+      if (g === 'icons' && !v && legacyTheme) v = legacyTheme; // link ?theme=N cũ
+      applyOption(g, v || GROUPS[g].def);
+    }
+    const panel = document.getElementById('builder');
+    const toggle = document.getElementById('builderToggle');
+    toggle.addEventListener('click', () => {
+      const open = panel.classList.toggle('builder--hidden') === false;
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open);
+      if (open) panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+    });
+    panel.addEventListener('click', e => {
+      const btn = e.target.closest('.builder__chips button');
+      if (btn) applyOption(btn.closest('[data-group]').dataset.group, btn.dataset.val);
+    });
+    document.getElementById('builderShare').addEventListener('click', () => {
+      const u = new URL(location.href.split('?')[0]);
+      for (const g of Object.keys(GROUPS)) u.searchParams.set(g, state[g]);
+      navigator.clipboard && navigator.clipboard.writeText(u.toString());
+      const b = document.getElementById('builderShare');
+      b.textContent = 'Đã sao chép!'; setTimeout(()=>b.textContent='Sao chép link cấu hình', 1600);
+    });
   });
-  // allow ?theme=2 for independent screenshots
-  const q = new URLSearchParams(location.search).get('theme');
-  window.__setTheme = setTheme;
-  // Defer to DOMContentLoaded: setTheme() calls initArc()/initBannerDots(), which are
-  // `let`-declared in later IIFEs (temporal dead zone). Calling now would throw and abort
-  // the whole <script>, leaving the arc/banner uninitialised.
-  if (q) document.addEventListener('DOMContentLoaded', () => setTheme(q));
 })();
 
 /* ---- Banner carousel (auto-rotate + dot sync) ---- */
