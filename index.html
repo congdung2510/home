@@ -1347,6 +1347,30 @@ a{text-decoration:none;color:inherit;}
   filter:drop-shadow(0 10px 18px rgba(200,16,46,.28));}
 [data-iconart="render"] .cat__icon .icon{font-size:36px;}
 
+/* --- HIỆU ỨNG FOCUS icon dịch vụ đang chọn --- */
+.arc__focus{position:absolute;z-index:1;width:132px;height:132px;margin:-66px 0 0 -66px;
+  border-radius:var(--radius-full);pointer-events:none;opacity:0;
+  transition:left .52s var(--ios-spring),top .52s var(--ios-spring),opacity .4s ease;}
+.arc__focus::before{content:'';position:absolute;inset:0;border-radius:inherit;
+  background:radial-gradient(circle,rgba(229,23,63,.30) 0%,rgba(229,23,63,.12) 42%,rgba(229,23,63,0) 70%);}
+.arc__focus::after{content:'';position:absolute;inset:8px;border-radius:inherit;
+  border:2px solid rgba(229,23,63,.55);opacity:0;}
+/* glow: quầng sáng thở nhẹ */
+[data-focusfx="glow"] .arc__focus,[data-focusfx="both"] .arc__focus{opacity:1;}
+[data-focusfx="glow"] .arc__focus::before,[data-focusfx="both"] .arc__focus::before{
+  animation:focusBreath 2.6s ease-in-out infinite;}
+/* ripple: sóng lan mỗi lần chọn danh mục mới */
+[data-focusfx="ripple"] .arc__focus,[data-focusfx="both"] .arc__focus{opacity:1;}
+[data-focusfx="ripple"] .arc__focus::before{background:none;}
+[data-focusfx="ripple"] .arc__focus.is-pop::after,
+[data-focusfx="both"] .arc__focus.is-pop::after{animation:focusRipple .72s cubic-bezier(.22,.61,.36,1);}
+@keyframes focusBreath{0%,100%{transform:scale(.92);opacity:.75}50%{transform:scale(1.06);opacity:1}}
+@keyframes focusRipple{0%{transform:scale(.5);opacity:.8}100%{transform:scale(1.3);opacity:0}}
+@media (prefers-reduced-motion: reduce){
+  .arc__focus::before{animation:none !important;}
+  .arc__focus.is-pop::after{animation:none !important;}
+}
+
 /* --- ĐƯỜNG NÉT QUỸ ĐẠO trong phần icon dịch vụ --- */
 /* Ẩn hoàn toàn */
 [data-lane="off"] .arc__rail,[data-lane="off"] .arc__lane1,[data-lane="off"] .arc__lane2{display:none;}
@@ -1550,7 +1574,7 @@ a{text-decoration:none;color:inherit;}
           <svg class="arc__ribbon" viewBox="0 0 422 176" aria-hidden="true"><defs><filter id="lqblur" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur stdDeviation="5"/></filter></defs><path class="lq__band lq__band--1" d="M -3.7 144.5 L 3.9 138.1 L 11.5 132.0 L 19.0 126.1 L 26.6 120.5 L 34.2 115.1 L 41.8 109.9 L 49.3 105.0 L 56.9 100.3 L 64.5 95.9 L 72.0 91.7 L 79.6 87.7 L 87.2 84.0 L 94.7 80.5 L 102.3 77.3 L 109.9 74.3 L 117.4 71.5 L 125.0 69.0 L 133.6 66.7 L 142.2 64.7 L 150.8 62.9 L 159.4 61.3 L 168.0 60.0 L 176.6 58.9 L 185.2 58.1 L 193.8 57.5 L 202.4 57.1 L 211.0 57.0 L 219.6 57.1 L 228.2 57.5 L 236.8 58.1 L 245.4 58.9 L 254.0 60.0 L 262.6 61.3 L 271.2 62.9 L 279.8 64.7 L 288.4 66.7 L 297.0 69.0 L 304.6 71.5 L 312.1 74.3 L 319.7 77.3 L 327.3 80.5 L 334.8 84.0 L 342.4 87.7 L 350.0 91.7 L 357.5 95.9 L 365.1 100.3 L 372.7 105.0 L 380.2 109.9 L 387.8 115.1 L 395.4 120.5 L 403.0 126.1 L 410.5 132.0 L 418.1 138.1 L 425.7 144.5"/><path class="lq__band lq__band--2" d="M -3.7 172.5 L 3.9 166.1 L 11.5 160.0 L 19.0 154.1 L 26.6 148.5 L 34.2 143.1 L 41.8 137.9 L 49.3 133.0 L 56.9 128.3 L 64.5 123.9 L 72.0 119.7 L 79.6 115.7 L 87.2 112.0 L 94.7 108.5 L 102.3 105.3 L 109.9 102.3 L 117.4 99.5 L 125.0 97.0 L 133.6 94.7 L 142.2 92.7 L 150.8 90.9 L 159.4 89.3 L 168.0 88.0 L 176.6 86.9 L 185.2 86.1 L 193.8 85.5 L 202.4 85.1 L 211.0 85.0 L 219.6 85.1 L 228.2 85.5 L 236.8 86.1 L 245.4 86.9 L 254.0 88.0 L 262.6 89.3 L 271.2 90.9 L 279.8 92.7 L 288.4 94.7 L 297.0 97.0 L 304.6 99.5 L 312.1 102.3 L 319.7 105.3 L 327.3 108.5 L 334.8 112.0 L 342.4 115.7 L 350.0 119.7 L 357.5 123.9 L 365.1 128.3 L 372.7 133.0 L 380.2 137.9 L 387.8 143.1 L 395.4 148.5 L 403.0 154.1 L 410.5 160.0 L 418.1 166.1 L 425.7 172.5"/><path class="lq__band lq__band--3" d="M -3.7 200.5 L 3.9 194.1 L 11.5 188.0 L 19.0 182.1 L 26.6 176.5 L 34.2 171.1 L 41.8 165.9 L 49.3 161.0 L 56.9 156.3 L 64.5 151.9 L 72.0 147.7 L 79.6 143.7 L 87.2 140.0 L 94.7 136.5 L 102.3 133.3 L 109.9 130.3 L 117.4 127.5 L 125.0 125.0 L 133.6 122.7 L 142.2 120.7 L 150.8 118.9 L 159.4 117.3 L 168.0 116.0 L 176.6 114.9 L 185.2 114.1 L 193.8 113.5 L 202.4 113.1 L 211.0 113.0 L 219.6 113.1 L 228.2 113.5 L 236.8 114.1 L 245.4 114.9 L 254.0 116.0 L 262.6 117.3 L 271.2 118.9 L 279.8 120.7 L 288.4 122.7 L 297.0 125.0 L 304.6 127.5 L 312.1 130.3 L 319.7 133.3 L 327.3 136.5 L 334.8 140.0 L 342.4 143.7 L 350.0 147.7 L 357.5 151.9 L 365.1 156.3 L 372.7 161.0 L 380.2 165.9 L 387.8 171.1 L 395.4 176.5 L 403.0 182.1 L 410.5 188.0 L 418.1 194.1 L 425.7 200.5"/><path class="lq__sheen" d="M -3.7 133.5 L 3.9 127.1 L 11.5 121.0 L 19.0 115.1 L 26.6 109.5 L 34.2 104.1 L 41.8 98.9 L 49.3 94.0 L 56.9 89.3 L 64.5 84.9 L 72.0 80.7 L 79.6 76.7 L 87.2 73.0 L 94.7 69.5 L 102.3 66.3 L 109.9 63.3 L 117.4 60.5 L 125.0 58.0 L 133.6 55.7 L 142.2 53.7 L 150.8 51.9 L 159.4 50.3 L 168.0 49.0 L 176.6 47.9 L 185.2 47.1 L 193.8 46.5 L 202.4 46.1 L 211.0 46.0 L 219.6 46.1 L 228.2 46.5 L 236.8 47.1 L 245.4 47.9 L 254.0 49.0 L 262.6 50.3 L 271.2 51.9 L 279.8 53.7 L 288.4 55.7 L 297.0 58.0 L 304.6 60.5 L 312.1 63.3 L 319.7 66.3 L 327.3 69.5 L 334.8 73.0 L 342.4 76.7 L 350.0 80.7 L 357.5 84.9 L 365.1 89.3 L 372.7 94.0 L 380.2 98.9 L 387.8 104.1 L 395.4 109.5 L 403.0 115.1 L 410.5 121.0 L 418.1 127.1 L 425.7 133.5"/><path class="lq__lane" d="M -3.7 110.5 L 3.9 104.1 L 11.5 98.0 L 19.0 92.1 L 26.6 86.5 L 34.2 81.1 L 41.8 75.9 L 49.3 71.0 L 56.9 66.3 L 64.5 61.9 L 72.0 57.7 L 79.6 53.7 L 87.2 50.0 L 94.7 46.5 L 102.3 43.3 L 109.9 40.3 L 117.4 37.5 L 125.0 35.0 L 133.6 32.7 L 142.2 30.7 L 150.8 28.9 L 159.4 27.3 L 168.0 26.0 L 176.6 24.9 L 185.2 24.1 L 193.8 23.5 L 202.4 23.1 L 211.0 23.0 L 219.6 23.1 L 228.2 23.5 L 236.8 24.1 L 245.4 24.9 L 254.0 26.0 L 262.6 27.3 L 271.2 28.9 L 279.8 30.7 L 288.4 32.7 L 297.0 35.0 L 304.6 37.5 L 312.1 40.3 L 319.7 43.3 L 327.3 46.5 L 334.8 50.0 L 342.4 53.7 L 350.0 57.7 L 357.5 61.9 L 365.1 66.3 L 372.7 71.0 L 380.2 75.9 L 387.8 81.1 L 395.4 86.5 L 403.0 92.1 L 410.5 98.0 L 418.1 104.1 L 425.7 110.5"/></svg>
           <svg class="arc__rings" viewBox="0 0 390 176" preserveAspectRatio="none" aria-hidden="true"><circle cx="195" cy="560" r="410"/><circle cx="195" cy="560" r="470"/><circle cx="195" cy="560" r="530"/><circle cx="195" cy="560" r="590"/></svg>
           <div class="arc__bump"></div>
-          <div class="arc__stage" id="arcStage"><div class="cat" data-c="0"><span class="cat__icon"><svg class="icon"><use href="#i-car"/></svg></span><span class="cat__label">Ô tô</span></div><div class="cat" data-c="1"><span class="cat__icon"><svg class="icon"><use href="#i-motorbike"/></svg></span><span class="cat__label">Xe máy</span></div><div class="cat" data-c="2"><span class="cat__icon"><svg class="icon"><use href="#i-heart"/></svg></span><span class="cat__label">Sức khoẻ</span></div><div class="cat" data-c="3"><span class="cat__icon"><svg class="icon"><use href="#i-users-group"/></svg></span><span class="cat__label">Đời sống</span></div><div class="cat" data-c="4"><span class="cat__icon"><svg class="icon"><use href="#i-med-cross"/></svg></span><span class="cat__label">Y tế, XH</span></div><div class="cat" data-c="5"><span class="cat__icon"><svg class="icon"><use href="#i-umbrella"/></svg></span><span class="cat__label">Nhân thọ</span></div><div class="cat" data-c="6"><span class="cat__icon"><svg class="icon"><use href="#i-plane"/></svg></span><span class="cat__label">Du lịch</span></div></div>
+          <div class="arc__focus" id="arcFocus" aria-hidden="true"></div><div class="arc__stage" id="arcStage"><div class="cat" data-c="0"><span class="cat__icon"><svg class="icon"><use href="#i-car"/></svg></span><span class="cat__label">Ô tô</span></div><div class="cat" data-c="1"><span class="cat__icon"><svg class="icon"><use href="#i-motorbike"/></svg></span><span class="cat__label">Xe máy</span></div><div class="cat" data-c="2"><span class="cat__icon"><svg class="icon"><use href="#i-heart"/></svg></span><span class="cat__label">Sức khoẻ</span></div><div class="cat" data-c="3"><span class="cat__icon"><svg class="icon"><use href="#i-users-group"/></svg></span><span class="cat__label">Đời sống</span></div><div class="cat" data-c="4"><span class="cat__icon"><svg class="icon"><use href="#i-med-cross"/></svg></span><span class="cat__label">Y tế, XH</span></div><div class="cat" data-c="5"><span class="cat__icon"><svg class="icon"><use href="#i-umbrella"/></svg></span><span class="cat__label">Nhân thọ</span></div><div class="cat" data-c="6"><span class="cat__icon"><svg class="icon"><use href="#i-plane"/></svg></span><span class="cat__label">Du lịch</span></div></div>
           <a class="arc__viewall">Xem tất cả <b>›</b></a><div class="arc__dots" id="arcDots"><span class="arc__dot arc__dot--on"></span><span class="arc__dot"></span><span class="arc__dot"></span></div>
         </div>
       </div>
@@ -1665,6 +1689,10 @@ a{text-decoration:none;color:inherit;}
         <span class="builder__label">Kiểu icon</span>
         <div class="builder__chips"><button data-val="line">Nét mảnh</button><button data-val="render">3D Render</button></div>
       </div>
+      <div class="builder__group" data-group="focusfx">
+        <span class="builder__label">Hiệu ứng icon đang chọn</span>
+        <div class="builder__chips"><button data-val="both">Quầng + Sóng</button><button data-val="glow">Quầng sáng</button><button data-val="ripple">Sóng lan</button><button data-val="off">Tắt</button></div>
+      </div>
       <div class="builder__group" data-group="lane">
         <span class="builder__label">Đường quỹ đạo icon</span>
         <div class="builder__chips"><button data-val="dash">Nét đứt</button><button data-val="dots">Chấm bi</button><button data-val="solid">Nét liền mờ</button><button data-val="glow">Phát sáng</button><button data-val="off">Ẩn</button></div>
@@ -1733,7 +1761,8 @@ a{text-decoration:none;color:inherit;}
     banner:   { vals:['photo','promo'],                 def:'photo' },
     slides:   { multi:true, vals:['s1','s2','s3'],       def:['s1','s2','s3'] },
     lane:     { vals:['dash','dots','solid','glow','off'], def:'off' },
-    iconart:  { vals:['line','render'],                   def:'line' },
+    iconart:  { vals:['line','render'],                   def:'render' },
+    focusfx:  { vals:['both','glow','ripple','off'],     def:'both' },
     bnc:      { vals:['auto','city','burgundy','fuchsia','plum','coral','navy','glass'], def:'auto' },
     bg:       { vals:['auto','white','rose','flow','light','red'], def:'flow' },
     insurers: { vals:['logos','pill'],                  def:'pill' },
@@ -1928,6 +1957,22 @@ let initArc;
       nodes.forEach(el=>el.classList.toggle('cat--center', el===best));
       const arcEl = stage.closest('.arc');
       if (arcEl && best) arcEl.setAttribute('data-center', best.dataset.c);
+      // Hiệu ứng focus: quầng sáng bám icon giữa, sóng lan khi đổi danh mục
+      const fx = arcEl && arcEl.querySelector('.arc__focus');
+      if (fx && best){
+        // Tính theo TỌA ĐỘ ĐÍCH (icon giữa luôn ở cx) — không đọc rect lúc icon đang bay
+        const place = () => {
+          const ic = best.querySelector('.cat__icon');
+          const ar = arcEl.getBoundingClientRect(), sr = stage.getBoundingClientRect();
+          fx.style.left = Math.round(sr.left - ar.left + cx) + 'px';
+          fx.style.top  = Math.round(sr.top - ar.top + ic.offsetTop + ic.offsetHeight/2) + 'px';
+        };
+        place(); setTimeout(place, 560);   // chốt lại sau khi icon phóng to xong
+        if (fx.dataset.c !== best.dataset.c){
+          fx.dataset.c = best.dataset.c;
+          fx.classList.remove('is-pop'); void fx.offsetWidth; fx.classList.add('is-pop');
+        }
+      }
       if(dotWrap&&best){
         const c=parseInt(best.dataset.c);
         const page=Math.min(2,Math.floor(c/Math.ceil(CAT/3)));
