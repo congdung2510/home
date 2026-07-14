@@ -232,7 +232,7 @@ a{text-decoration:none;color:inherit;}
 .search__cart:active{transform:scale(.94);}
 
 /* ---------- 7. BANNER (carousel + skeleton loading) ---------- */
-.banner{padding:var(--space-6) var(--space-4) var(--space-1);position:relative;z-index:2;}
+.banner{padding:8px var(--space-4) var(--space-1);position:relative;z-index:2;}
 /* Theme 1: thêm khoảng thở giữa banner và hàng icon dịch vụ (arc) */
 [data-theme="2"] .banner{padding-bottom:var(--space-4);}
 .banner__track{display:flex;gap:var(--space-3);overflow-x:auto;scroll-snap-type:x mandatory;
@@ -1441,6 +1441,7 @@ a{text-decoration:none;color:inherit;}
 .citybg{display:none;position:absolute;left:0;right:0;top:0;z-index:0;pointer-events:none;
   background:
     linear-gradient(180deg,rgba(255,255,255,.35) 0%,rgba(255,255,255,0) 22%),
+    linear-gradient(0deg,#FFFFFF 0px,rgba(255,255,255,0) 6px),
     var(--bg-city) center bottom/cover no-repeat,
     linear-gradient(180deg,#FCE7ED 0%,#F8DCE4 100%);}
 [data-bnc="city"] .citybg{display:block;}
@@ -1483,7 +1484,7 @@ a{text-decoration:none;color:inherit;}
 .banner__track{width:100%;max-width:none;margin:0 auto -12px;
   border-radius:0 !important;overflow-x:auto;overflow-y:hidden;
   padding:6px 0 18px;box-shadow:none !important;}
-.banner__slide{width:100%;max-width:none;height:130px;aspect-ratio:auto !important;
+.banner__slide{width:100%;max-width:none;height:auto;aspect-ratio:2.15/1 !important;
   border:none !important;border-radius:16px;object-fit:cover;background:var(--white);
   box-shadow:0 8px 22px rgba(120,40,60,.16), 0 2px 6px rgba(120,40,60,.08) !important;}
 .banner__dots{margin-top:var(--space-2);}
@@ -2101,7 +2102,7 @@ a{text-decoration:none;color:inherit;}
     const scroll = document.querySelector('.app__scroll');
     if (!arc || !scroll) return;
     const h = arc.getBoundingClientRect().bottom - scroll.getBoundingClientRect().top + scroll.scrollTop;
-    bg.style.height = Math.round(h) + 'px';
+    bg.style.height = Math.floor(h) - 1 + 'px';
   };
   window.__fitCityBg = fit;
   window.addEventListener('resize', fit);
